@@ -94,13 +94,13 @@
 
 <!-- <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
 </fb:login-button> -->
-<div
+<!-- <div
   class="fb-like"
-  data-share="true"
+  data-share="false"
   data-width="450"
   data-show-faces="true">
-</div>
-<button 
+</div> -->
+<button onclick="FB.login()">Login Via Facebook</button>
 
 <div id="status">
 </div>
