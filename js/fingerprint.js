@@ -24,7 +24,7 @@ $(document).ready(function(){
         //for event registration
         $(document).on('click', '.event-reg', function() {
         obj =this;
-        $(obj).html('<img src="images/ajax-loader.gif" style="width:34px;height:34px">');
+        $(obj).html($(obj).html+'<img src="images/ajax-loader.gif" style="width:34px;height:34px">');
         console.log('event clicked');
         var status = 2;
         if( $(this).hasClass('reg'))
