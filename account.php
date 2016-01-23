@@ -5,8 +5,19 @@
 <script type="text/javascript" src="js/jquery.leanModal.min.js"></script>
 <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" />
 <link type="text/css" rel="stylesheet" href="css/style.css" />
+<link href="http://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
+<script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
 
 <body>
+    <div id="div4" style="border:solid 1px;background-color:gainsboro;position:absolute;top:0px;right:0px">
+      <span>HERE</span><br /><br />
+    </div>
+    <script>
+      
+      $("#div4 span").draggable ({
+        axis : "y"
+      });
+    </script>
 <!--facebook login Integration -->
 <script>
 
@@ -73,7 +84,7 @@ function testAPI(response){
     FB.getLoginStatus(function(response) {
         if (response.status === 'connected') {
                 console.log('Logged in.');
-                isLoggedIn();
+                //isLoggedIn();
         }
         });
   };
