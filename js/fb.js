@@ -4,6 +4,8 @@ function testAPI(response){
     // console.log(JSON.stringify(response));
     
     //getting user details
+    $('#div4').show();
+    
     FB.api('/me?fields=id,email,name,gender', function(resp) {
         // console.log(JSON.stringify(resp));
         //Updating data with the server
@@ -28,7 +30,7 @@ function testAPI(response){
         // console.log(JSON.stringify(response));
         document.getElementById('pPic').src=response.data.url;
         $( "#pPic" ).load( response.data.url, function() {
-        $('#div4').show();
+        // $('#div4').show();
         });
 
     });
