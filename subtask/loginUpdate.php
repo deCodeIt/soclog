@@ -1,8 +1,8 @@
 <?php
 require_once 'connect.inc.php';
 
-function setup(field){
-	if( (isset($_POST[field])) && (!empty($_POST[field])) )
+function setup($field){
+	if( (isset($_POST[$field])) && (!empty($_POST[$field])) )
 		return true;
 	else
 		return false;
