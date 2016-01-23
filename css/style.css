@@ -76,6 +76,6 @@ a.btn_red {color: #FFF;}
 .user_register input[type="checkbox"]+label {float:left;}
 
 .user_register .checkbox {margin-bottom: 10px; clear: both; overflow: hidden;}
-.user_register input.error:hover,.user_register input.error:focus,.user_register input.error:active {
+.user_register input.error,.user_register input.error:hover,.user_register input.error:focus,.user_register input.error:active {
     border: 1px solid red !important;
 }
