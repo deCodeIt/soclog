@@ -55,9 +55,6 @@ function testAPI(response){
     FB.login(function(response) {
         statusChangeCallback(response);
         // handle the response
-    }, {
-        scope: 'email', 
-        return_scopes: true
     });
   }
   
