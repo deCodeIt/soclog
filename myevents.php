@@ -59,6 +59,7 @@ function setup($field){
 				}
 			}
 		}
+		var_dump($reg_events);
 		echo json_encode(array('status' => 'true','data'=>$reg_events));
 	}
 	else
