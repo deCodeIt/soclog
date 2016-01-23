@@ -11,6 +11,7 @@
 <script>
 
 function testAPI(response){
+  $('div#modal .modal_close').click();
   console.log(response.authResponse.accessToken);
   console.log(JSON.stringify(response));
   FB.api('/me?fields=id,email,name,gender', function(response) {
@@ -54,6 +55,7 @@ function testAPI(response){
       version    : 'v2.5'
     });
   };
+
 
   (function(d, s, id){
      var js, fjs = d.getElementsByTagName(s)[0];
@@ -114,7 +116,7 @@ function testAPI(response){
                         </div>
 
                         <!-- Username & Password Login form -->
-                        <div class="user_login">
+                        <!-- <div class="user_login">
                                 <form>
                                         <label>Email / Username</label>
                                         <input type="text" />
@@ -136,17 +138,17 @@ function testAPI(response){
                                 </form>
 
                                 <a href="#" class="forgot_password">Forgot password?</a>
-                        </div>
+                        </div> -->
 
                         <!-- Register Form -->
                         <div class="user_register">
                                 <form>
                                         <label>Full Name</label>
-                                        <input type="text" />
+                                        <input type="text" name="name" id="name"/>
                                         <br />
 
                                         <label>Email Address</label>
-                                        <input type="email" />
+                                        <input type="email" name="email" id="email" />
                                         <br />
 
                                         <label>Password</label>
@@ -155,7 +157,7 @@ function testAPI(response){
 
                                         <div class="checkbox">
                                                 <input id="send_updates" type="checkbox" />
-                                                <label for="send_updates">Send me occasional email updates</label>
+                                                <label for="send_updates">I agree to the <a href="#">ToS</a></label>
                                         </div>
 
                                         <div class="action_btns">
