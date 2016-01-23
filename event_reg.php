@@ -70,7 +70,8 @@ if(setup('zeit_event') && setup('stat'))
 	}
 	else
 	{
-		echo json_encode(array('status' => 'false','error'=>'No such event Exists'));;
+		echo $event;
+		echo json_encode(array('status' => 'false','error'=>'No such event Exists'));
 	}
 
 
