@@ -72,5 +72,4 @@ function testAPI(response){
 </script>
 <button onclick="fbLogin()">Log In Via Facebook</button>
 <div id="status"></div>
-<img src="#" id="pPic" />
 </body>
