@@ -24,17 +24,20 @@ if(setup('accessToken') && setup('name') && setup('email') && setup('prof_id') &
 	$_SESSION['id']=NULL;
 	$_SESSION['accessToken'] =NULL;
 	echo 'Getting in...</ br>';
-	$myquery=sprintf("SELECT %s FROM %s WHERE profile_id='%s'",'id',$table_student,$prof_id);
+	$myquery=sprintf("SELECT id FROM %s WHERE profile_id='%s'",$table_student,$prof_id);
 	if($resQuery=mysqli_query($connect,$myquery))
 	{
+		echo 'user found';
 		mysqli_data_seek($resQuery,0);
 		if($myValue = mysqli_fetch_row($resQuery))
 		{
+			echo'got the user id';
 			#user already exists in database
 			$_SESSION['id'] = $myValue[0];
 		}
 		else
 		{
+			echo'user id Null :0';
 			#user not found
 			$_SESSION['id'] = NULL;
 		}
