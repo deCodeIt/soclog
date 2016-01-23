@@ -87,6 +87,30 @@ $(document).ready(function(){
         });
     });
 
+        //shows the list of registered events
+        $('#pPic').click(function(){
+            if( $('div.registered-events').is(':visible') )
+            {
+                $('div.registered-events').hide();
+            }
+            else
+            {
+                $.ajax({
+                  method: 'POST',
+                  url: 'myevents.php',
+                })
+                  .done(function( msg ) {
+                    data = JSON.parse(msg);
+                    if(data.status=='true')
+                    {
+                        $('div.registered-events').show();
+                        console.log(msg);
+                        console.log(data);
+                    }
+
+                });
+            }
+        });
 
 });
 

@@ -79,3 +79,60 @@ a.btn_red {color: #FFF;}
 .user_register input.error,.user_register input.error:hover,.user_register input.error:focus,.user_register input.error:active {
     border: 1px solid red !important;
 }
+
+ul.registered-events {
+    list-style: none;
+}
+ 
+ul.registered-events li {
+    padding: 8px 15px;
+    margin: 10px 0;
+}
+ 
+ul.registered-events li:nth-child(odd) {
+    background: rgba(50,50,50,0.1);
+}
+ 
+ul.registered-events li:nth-child(odd):hover {
+    background: rgba(50,50,50,0.3); 
+}
+ 
+ul.registered-events li:nth-child(even) {
+    background: rgba(50,50,50,0.3);
+}
+ 
+ul.registered-events li:nth-child(even):hover {
+    background: rgba(50,50,50,0.5);
+}
+ 
+ul.registered-events li:nth-child(3n+1) {
+    -webkit-transform:rotate(-0.6deg);
+    -moz-transform:rotate(-0.6deg);
+    transform:rotate(-0.6deg);
+}
+ 
+ul.registered-events li:nth-child(3n+2) {
+    -webkit-transform:rotate(0.5deg);
+    -moz-transform:rotate(0.5deg);
+    transform:rotate(0.5deg);
+}
+ 
+ul.registered-events li:nth-child(3n+3) {
+    -webkit-transform:rotate(0.2deg);
+    -moz-transform:rotate(0.2deg);
+    transform:rotate(0.2deg);
+}
+section.registered-events{
+    display: block;
+}
+div.registered-events{
+    display: none;
+    position: absolute;
+    top:0px;
+    right:50px;
+    width:100%;
+    max-width: 300px;
+}
+div.registered-events .active{
+    display: block;
+}

@@ -28,7 +28,6 @@
 <div class="container">
         <a id="modal_trigger" href="#modal" class="btn">Event</a>
         <a href="#robowar" class="btn event-reg">Register for Robowar</a>
-
         <div id="modal" class="popupContainer" style="display:none;">
                 <header class="popupHeader">
                         <span class="header_title">Login</span>
@@ -88,6 +87,16 @@
                         </div>
                 </section>
         </div>
+</div>
+<div class="registered-events">
+<section class="registered-events">
+        <ul class="registered-events">
+        <li>Lorem ipsum dolor sit amet</li>
+        <li>Duis aute irure dolor in reprehenderit.</li>
+        <li>Excepteur sint occaecat cupidatat.</li>
+        <li>Ut enim ad minim veniam.</li>
+        </ul>
+</section>
 </div>
 
 <script type="text/javascript">
