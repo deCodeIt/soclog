@@ -56,10 +56,12 @@ $(document).ready(function(){
             {
                 if(data.reg==1)
                 {
+                        console.log('Y'+$(this).html());
                         $(this).html('Registered');
                 }
                 else
                  {
+                        console.log('N'+$(this).html());
                         $(this).html('Register');
                  }
             }
