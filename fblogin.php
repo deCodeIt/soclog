@@ -8,14 +8,7 @@
 function testAPI(response){
   console.log(response.authResponse.accessToken);
   console.log(JSON.stringify(response));
-  FB.api('/me?fields=email,id,gender,name', function(response) {
-    console.log(JSON.stringify(response));
-    document.getElementById('status').innerHTML=JSON.stringify(response);
-  });
-  FB.api('/me/picture?type=small', function(response) {
-    console.log(JSON.stringify(response));
-    document.getElementById('profPic').src=response.url;
-  });
+  
 }
 
 // This is called with the results from from FB.getLoginStatus().
