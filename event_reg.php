@@ -7,7 +7,6 @@ function setup($field){
 		return true;
 	else
 	{
-		echo $field;
 		return false;
 	}
 }
@@ -16,9 +15,10 @@ if(setup('zeit_event') && setup('stat'))
 {
 	$event = mysqli_real_escape_string($connect,htmlentities($_REQUEST['zeit_event']));
 	$status = mysqli_real_escape_string($connect,htmlentities($_REQUEST['stat']));
-	if($status!=0)
+	if($status!=2)
 	{
-		$status=0;
+		//2 => not registered
+		$status=2;
 	}
 	else
 	{

@@ -35,7 +35,7 @@ $(document).ready(function(){
         //for event registration
         $(document).on('click', '.event-reg', function() {
                 console.log('event clicked');
-        var status = 0;
+        var status = 2;
         if( $(this).hasClass('reg'))
         {
                 status = 1;
