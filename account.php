@@ -188,7 +188,7 @@ function testAPI(response){
 
         $(function(){
                 // Calling Login Form
-                $("#login_form").click(function(){
+                $(".social_box").click(function(){
                         $(".social_login").hide();
                         $(".user_login").show();
                         return false;
