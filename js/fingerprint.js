@@ -112,7 +112,7 @@ $(document).ready(function(){
                         {
                             str+='<li>'+data[i].name+'</li>';
                         }
-                        $('ul.registered-events').html(str);
+                        $('ul#registered-events').html(str);
                     }
 
                 });

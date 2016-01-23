@@ -91,6 +91,11 @@
 <div class="registered-events">
 <section class="registered-events">
         <ul class="registered-events">
+                <li>Registered Events</li>
+        </ul>
+</section>
+<section class="registered-events">
+        <ul class="registered-events" id="registered-events">
         <li>Lorem ipsum dolor sit amet</li>
         <li>Duis aute irure dolor in reprehenderit.</li>
         <li>Excepteur sint occaecat cupidatat.</li>
