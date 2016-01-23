@@ -12,7 +12,7 @@
 
 <body>
     <div id="div4" style="display:none;width:50px;background:transparent;height:50px;position:absolute;top:0px;right:0px">
-      <img src="#" style="width:100%;border-radius:50%;height:auto" id="pPic" />
+      <img src="images/ajax-loader.gif" style="width:100%;border-radius:50%;height:auto" id="pPic" />
     </div>
     <script>
       

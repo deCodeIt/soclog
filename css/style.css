@@ -136,3 +136,9 @@ div.registered-events{
 div.registered-events .active{
     display: block;
 }
+
+/*For preloading ajax wait*/
+#preload-01 {
+    background: url('images/ajax-loader.gif') no-repeat -9999px -9999px;
+    display: none;
+}
