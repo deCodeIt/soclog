@@ -182,7 +182,6 @@ function validateForm(){
                 if(!field.is(':checked'))
                 {
                         field.addClass('error');
-                        field.focus();
                         status=false;
                 }
                 //validation passed
