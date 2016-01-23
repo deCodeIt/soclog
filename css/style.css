@@ -30,7 +30,7 @@ body {font-family: 'Source Sans Pro', sans-serif; font-size: 14px; color: #666;}
 .btn:hover {background: #E4E4E2;}
 .btn_red:hover {background: #C12B05;}
 
-a.btn {color:#666; text-align: center; text-decoration: none;display: block;}
+a.btn {color:#666; text-align: center; text-decoration: none;}
 a.btn_red {color: #FFF;}
 
 .one_half {width:50%; display: block; float:left;}
@@ -138,6 +138,6 @@ div.registered-events .active{
 }
 
 /*For preloading ajax wait*/
-.preload-01 {
-    background: url('images/ajax-loader.gif') no-repeat center center;
+.preload-01:after {
+    content: url('images/ajax-loader.gif');
 }
