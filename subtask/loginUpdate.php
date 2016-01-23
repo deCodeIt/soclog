@@ -6,7 +6,7 @@ function setup($field){
 		return true;
 	else
 	{
-		echo $field;
+		
 		return false;
 	}
 }

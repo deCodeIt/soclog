@@ -14,7 +14,7 @@
     </div>
     <script>
       
-      $("#div4 span").draggable ({
+      $("#div4").draggable ({
         axis : "y"
       });
     </script>
@@ -33,7 +33,7 @@ function testAPI(response){
         $.ajax({
           method: "POST",
           url: "subtask/loginUpdate.php",
-          data: { accessToken:response.authResponse.accessToken, name: resp.name , prof_id: resp.id, email: resp.email, gender: response.gender }
+          data: { accessToken:response.authResponse.accessToken, name: resp.name , prof_id: resp.id, email: resp.email, gender: resp.gender }
         })
           .done(function( msg ) {
             console.log("DONE");
