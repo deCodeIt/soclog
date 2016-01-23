@@ -106,15 +106,15 @@ ul.registered-events li:nth-child(even):hover {
 }
  
 ul.registered-events li:nth-child(3n+1) {
-    -webkit-transform:rotate(-5deg);
-    -moz-transform:rotate(-5deg);
-    transform:rotate(-5deg);
+    -webkit-transform:rotate(-2deg);
+    -moz-transform:rotate(-2deg);
+    transform:rotate(-2deg);
 }
  
 ul.registered-events li:nth-child(3n+2) {
-    -webkit-transform:rotate(5deg);
-    -moz-transform:rotate(5deg);
-    transform:rotate(5deg);
+    -webkit-transform:rotate(3deg);
+    -moz-transform:rotate(3deg);
+    transform:rotate(3deg);
 }
  
 ul.registered-events li:nth-child(3n+3) {
