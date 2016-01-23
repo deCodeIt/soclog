@@ -24,7 +24,7 @@ $(document).ready(function(){
         //for event registration
         $(document).on('click', '.event-reg', function() {
         obj =this;
-        $(obj).html('<img src="images/ajax-loader.gif" style="">');
+        $(obj).html('<img src="images/ajax-loader.gif" style="width:34px;height:34px">');
         console.log('event clicked');
         var status = 2;
         if( $(this).hasClass('reg'))
@@ -48,11 +48,11 @@ $(document).ready(function(){
                 if(data.reg==1)
                 {
                         $(obj).addClass('reg');
-                        $(obj).html('Registered');
+                        // $(obj).html('Registered');
                 }
                 else
                  {      $(obj).removeClass('reg');
-                        $(obj).html('Register');
+                        // $(obj).html('Register');
                  }
             }
 
