@@ -20,7 +20,7 @@ $(document).ready(function(){
                          console.log('Submitted');
             },
             error   : function( xhr, err ) {
-                         console.log('Error');     
+                         console.log('Error'+err);     
             }
         });    
         return false;
