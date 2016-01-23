@@ -17,13 +17,13 @@ $(document).ready(function(){
           data: $(this).serialize()
         })
           .done(function( msg ) {
-            console.log("YES");
-            console.log(msg);
-            console.log(JSON.parse(msg));
+            // console.log("YES");
+            // console.log(msg);
+            // console.log(JSON.parse(msg));
             data = JSON.parse(msg);
             if(data.status=='true')
             {
-                $('#modal').hide();
+                $(".modal_close").click();
             }
 
         });    

@@ -12,7 +12,7 @@ function setup($field){
 	}
 }
 
-if(setup('email') && setup('location') && setup('college') && !$_SESSION['reg_complete'])
+if(setup('email') && setup('location') && setup('college') )
 {
 	$email = mysqli_real_escape_string($connect,htmlentities($_REQUEST['email']));
 	$location = mysqli_real_escape_string($connect,htmlentities($_REQUEST['location']));
