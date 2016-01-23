@@ -63,7 +63,7 @@ if(setup('zeit_event') && setup('stat'))
 				return;
 			}
 
-	$myquery=sprintf("UPDATE %s SET %s='%s' WHERE id='%s'",$table_student,$event,$status,$_SESSION['id']);
+	$myquery=sprintf("UPDATE %s SET %s='%s' WHERE id='%s'",$table_event,$event,$status,$_SESSION['id']);
 	if($resQuery=mysqli_query($connect,$myquery))
 	{
 		echo json_encode(array('status' => 'true','reg'=>$status));
