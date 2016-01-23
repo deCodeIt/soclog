@@ -109,10 +109,10 @@ function testAPI(response){
                                         <span>Or use your Email address</span>
                                 </div> -->
 
-                                <!-- <div class="action_btns">
+                                <div class="action_btns">
                                         <div class="one_half"><a href="#" id="login_form" class="btn">Login</a></div>
                                         <div class="one_half last"><a href="#" id="register_form" class="btn">Sign up</a></div>
-                                </div> -->
+                                </div>
                         </div>
 
                         <!-- Username & Password Login form -->
