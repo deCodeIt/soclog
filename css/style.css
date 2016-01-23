@@ -138,6 +138,6 @@ div.registered-events .active{
 }
 
 /*For preloading ajax wait*/
-.preload-01:after {
+.preload-01::after {
     content: url('images/ajax-loader.gif');
 }
