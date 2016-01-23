@@ -34,7 +34,8 @@ $(document).ready(function(){
     });
         //for event registration
         $(document).on('click', '.event-reg', function() {
-                console.log('event clicked');
+        obj =this;
+        console.log('event clicked');
         var status = 2;
         if( $(this).hasClass('reg'))
         {
@@ -48,21 +49,19 @@ $(document).ready(function(){
           data: dat
         })
           .done(function( msg ) {
-            console.log("YES");
-            console.log(msg);
-            console.log(JSON.parse(msg));
+            // console.log("YES");
+            // console.log(msg);
+            // console.log(JSON.parse(msg));
             data = JSON.parse(msg);
             if(data.status=='true')
             {
                 if(data.reg==1)
                 {
-                        console.log('Y'+$(this).attr('href'));
-                        $(this).html('Registered');
+                        $(obj).html('Registered');
                 }
                 else
                  {
-                        console.log('N'+$(this).html());
-                        $(this).html('Register');
+                        $(obj).html('Register');
                  }
             }
 
