@@ -104,8 +104,15 @@ $(document).ready(function(){
                     if(data.status=='true')
                     {
                         $('div.registered-events').show();
-                        console.log(msg);
-                        console.log(data);
+                        // console.log(msg);
+                        // console.log(data);
+                        data = data.data;
+                        str='';
+                        for(i=0;i<data.length;i++)
+                        {
+                            str+='<li>'+data.name+'</li>';
+                        }
+                        $('ul.registered-events').html(str);
                     }
 
                 });
