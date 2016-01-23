@@ -49,6 +49,7 @@ function testAPI(response){
      js.src = "//connect.facebook.net/en_US/sdk.js";
      fjs.parentNode.insertBefore(js, fjs);
    }(document, 'script', 'facebook-jssdk'));
+
   function fbLogin(){
     FB.login(function(response) {
         statusChangeCallback(response);
@@ -61,4 +62,5 @@ function testAPI(response){
   
 
 </script>
+<button onclick="fbLogin()">Log In Via Facebook</button>
 </body>
