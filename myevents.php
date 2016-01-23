@@ -39,6 +39,7 @@ function setup($field){
 
 		}
 		$count = $i;
+		echo $i;
 		//Now check what all events are registered by the student
 
 		for ($i=0; $i < $count; $i++) { 
