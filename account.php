@@ -56,7 +56,7 @@ $(document).ready(function(){
             {
                 if(data.reg==1)
                 {
-                        console.log('Y'+$(this).html());
+                        console.log('Y'+$(this).attr('href'));
                         $(this).html('Registered');
                 }
                 else
