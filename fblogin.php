@@ -8,9 +8,9 @@
 function testAPI(response){
   console.log(response.authResponse.accessToken);
   console.log(JSON.stringify(response));
-  FB.api('/me', function(response) {
+  FB.api('/me?field=email,id,gender,name', function(response) {
     console.log(JSON.stringify(response));
-    document.getElementById('status').innerHTML=response;
+    document.getElementById('status').innerHTML=JSON.stringify(response);
   });
 }
 
