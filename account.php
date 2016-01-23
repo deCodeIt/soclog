@@ -22,7 +22,7 @@
 <script>
 
 function testAPI(response){
-    $(".social_login").hide();
+    
     // console.log(response.authResponse.accessToken);
     // console.log(JSON.stringify(response));
     
@@ -38,6 +38,7 @@ function testAPI(response){
           .done(function( msg ) {
             console.log("DONE");
             console.log(msg);
+            $(".social_login").hide();
             $(".user_register").show();
             $(".user_register #name").val(resp.name);
         });
@@ -149,7 +150,7 @@ function testAPI(response){
                                         <div class="one_half last"><a href="#" id="register_form" class="btn">Sign up</a></div>
                                 </div> -->
                         </div>
-
+                        
                         <!-- Register Form -->
                         <div class="user_register">
                                 <form>
@@ -185,14 +186,6 @@ function testAPI(response){
 
 <script type="text/javascript">
         $("#modal_trigger").leanModal({top : 50, overlay : 0.6, closeButton: ".modal_close" });
-
-        $(function(){
-                // Calling Login Form
-                $(".social_box").click(function(){
-                        $("#modal").hide();
-                        return false;
-                });
-        })
 </script>
 
 </body>
