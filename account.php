@@ -9,7 +9,7 @@
 <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
 
 <body>
-    <div id="div4" style="width:50px;border-radius:50%;height:auto;border:solid 1px;background-color:gainsboro;position:absolute;top:0px;right:0px">
+    <div id="div4" style="width:50px;border-radius:50%;background:transparent;height:50px;position:absolute;top:0px;right:0px">
       <img src="#" style="width:100%;height:auto" id="pPic" />
     </div>
     <script>
