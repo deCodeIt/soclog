@@ -19,7 +19,12 @@ $(document).ready(function(){
           .done(function( msg ) {
             console.log("YES");
             console.log(msg);
-            
+            console.log(JSON.parse(msg));
+            data = JSON.parse(msg);
+            if(data.status=='true')
+            {
+                $('#modal').hide();
+            }
 
         });    
         return false;
@@ -49,7 +54,7 @@ function testAPI(response){
     
     //getting user details
     FB.api('/me?fields=id,email,name,gender', function(resp) {
-        console.log(JSON.stringify(resp));
+        // console.log(JSON.stringify(resp));
         //Updating data with the server
         $.ajax({
           method: "POST",
@@ -57,8 +62,8 @@ function testAPI(response){
           data: { accessToken:response.authResponse.accessToken, name: resp.name , prof_id: resp.id, email: resp.email, gender: resp.gender }
         })
           .done(function( msg ) {
-            console.log("DONE");
-            console.log(msg);
+            // console.log("DONE");
+            // console.log(msg);
             $(".social_login").hide();
             $(".user_register").show();
             $(".user_register #name").val(resp.name);
@@ -111,7 +116,7 @@ function testAPI(response){
 
     FB.getLoginStatus(function(response) {
         if (response.status === 'connected') {
-                console.log('Logged in.');
+                // console.log('Logged in.');
                 //isLoggedIn();
                 testAPI(response);
         }

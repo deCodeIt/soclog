@@ -12,7 +12,7 @@ function setup($field){
 	}
 }
 
-if(setup('email') && setup('location') && setup('college'))
+if(setup('email') && setup('location') && setup('college') && !$_SESSION['reg_complete'])
 {
 	$email = mysqli_real_escape_string($connect,htmlentities($_REQUEST['email']));
 	$location = mysqli_real_escape_string($connect,htmlentities($_REQUEST['location']));
@@ -24,9 +24,10 @@ if(setup('email') && setup('location') && setup('college'))
 		echo json_encode(array('status' => 'false'));
 	}
 
-	$myquery=sprintf("UPDATE %s SET email='%s',location='%s',college='%s' WHERE id='%s'",$table_student,$email,$location,$college,$_SESSION['id']);
+	$myquery=sprintf("UPDATE %s SET email='%s',location='%s',college='%s',reg_complete=`1` WHERE id='%s'",$table_student,$email,$location,$college,$_SESSION['id']);
 	if($resQuery=mysqli_query($connect,$myquery))
 	{
+		$_SESSION['reg_complete']=1;
 		echo json_encode(array('status' => 'true'));
 	}
 	else
