@@ -160,26 +160,28 @@ function validateForm(){
                 $('.error').removeClass('error');
 
                 var field = $("input#email");
+                var status=true;
                 if (field.val() == "") {
                         field.addClass('error');
                         field.focus();
-                        return false;
+                        status = false;
                       }
                 field = $("input#college");
                 if (field.val() == "") {
                         field.addClass('error');
                         field.focus();
-                        return false;
+                        status = false;
                       }
                 field = $("input#location");
                 if (field.val() == "") {
                         field.addClass('error');
                         field.focus();
-                        return false;
+                        status = false;
                       }
 
                 //validation passed
-                $('form#registration_form').submit();
+                if(status==true)
+                        $('form#registration_form').submit();
           });
 }
 </script>
