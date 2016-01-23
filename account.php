@@ -47,9 +47,9 @@ $(document).ready(function(){
           data: dat
         })
           .done(function( msg ) {
-            // console.log("YES");
-            // console.log(msg);
-            // console.log(JSON.parse(msg));
+            console.log("YES");
+            console.log(msg);
+            console.log(JSON.parse(msg));
             data = JSON.parse(msg);
             if(data.status=='true')
             {
