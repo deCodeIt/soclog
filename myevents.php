@@ -40,7 +40,6 @@ function setup($field){
 
 		}
 		$count = $i;
-		echo $i;
 		//Now check what all events are registered by the student
 
 		for ($i=0; $i < $count; $i++) { 
@@ -61,7 +60,6 @@ function setup($field){
 				}
 			}
 		}
-		$_SESSION['regs']=$event_list;
 		echo json_encode(array('status' => 'true','data'=>$reg_events));
 	}
 	else

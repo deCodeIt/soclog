@@ -26,9 +26,6 @@
 <script src="js/fb.js"></script>
 <!-- facebook login integration script closed-->
 <div class="container">
-<?php
-var_dump($_SESSION['regs']);
-?>
         <a id="modal_trigger" href="#modal" class="btn">Event</a>
         <a href="#robowar" class="btn event-reg">Register for Robowar</a>
         <div id="modal" class="popupContainer" style="display:none;">
