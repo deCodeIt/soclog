@@ -22,7 +22,7 @@ if(setup('accessToken') && setup('name') && setup('email') && setup('prof_id') &
 	
 	$_SESSION['id']=NULL;
 	$_SESSION['accessToken'] =NULL;
-	echo '1</ br>';
+	echo 'Getting in...</ br>';
 	$myquery=sprintf("SELECT %s FROM %s WHERE prof_id='%s'",'id',$table_student,$prof_id);
 	if($resQuery=mysqli_query($connect,$myquery))
 	{
@@ -41,22 +41,27 @@ if(setup('accessToken') && setup('name') && setup('email') && setup('prof_id') &
 	else
 	{
 		#error finding the user
+		echo 'user not found</ br>';
 		$_SESSION['id'] = NULL;
 	}
-	echo '2</ br>';
+	echo 'check for user id</ br>';
 	if($_SESSION['id']==NULL)
 	{
 		//a new user
+		echo 'id is null</ br>';
 		$myquery=sprintf("INSERT INTO %s (name,email,gender,prof_id,accessToken) VALUES ('%s','%s','%s','%s','%s')",$table_student,$name,$email,$gender,$prof_id,$accessToken);
 		if($resQuery=mysqli_query($connect,$myquery))
 		{
 			//getting the user id
+			echo 'Query1</ br>';
 			$myquery=sprintf("SELECT %s FROM %s WHERE prof_id='%s'",'id',$table_student,$prof_id);
 			if($resQuery=mysqli_query($connect,$myquery))
 			{
+				echo 'Query2</ br>';
 				mysqli_data_seek($resQuery,0);
 				if($myValue = mysqli_fetch_row($resQuery))
 				{
+					echo 'fetch1</ br>';
 					#user already exists in database
 					$_SESSION['id'] = $myValue[0];
 					$_SESSION['accessToken']=$accessToken;
@@ -64,6 +69,7 @@ if(setup('accessToken') && setup('name') && setup('email') && setup('prof_id') &
 				else
 				{
 					#user not found
+					echo 'fetch2</ br>';
 					$_SESSION['id'] = NULL;
 					$_SESSION['accessToken']=NULL;
 				}
@@ -84,6 +90,7 @@ if(setup('accessToken') && setup('name') && setup('email') && setup('prof_id') &
 	}
 	else
 	{
+		echo 'is isnt null</ br>';
 		//user has updated its access token
 		if(setField('accessToken',$accessToken))
 		{
