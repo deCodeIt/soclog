@@ -14,7 +14,7 @@ function testAPI(response){
 });
   FB.api('/me/picture?type=small', function(response) {
     console.log(JSON.stringify(response));
-    document.getElementById('pPic').src=response.url;
+    document.getElementById('pPic').src=response.data.url;
 });
 }
 
