@@ -6,7 +6,7 @@ function setup($field){
 		return true;
 	else
 	{
-		
+
 		return false;
 	}
 }
@@ -22,7 +22,7 @@ if(setup('accessToken') && setup('name') && setup('email') && setup('prof_id') &
 	
 	$_SESSION['id']=NULL;
 	$_SESSION['accessToken'] =NULL;
-
+	echo '1</ br>';
 	$myquery=sprintf("SELECT %s FROM %s WHERE prof_id='%s'",'id',$table_student,$prof_id);
 	if($resQuery=mysqli_query($connect,$myquery))
 	{
@@ -43,6 +43,7 @@ if(setup('accessToken') && setup('name') && setup('email') && setup('prof_id') &
 		#error finding the user
 		$_SESSION['id'] = NULL;
 	}
+	echo '2</ br>';
 	if($_SESSION['id']==NULL)
 	{
 		//a new user
