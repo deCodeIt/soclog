@@ -57,10 +57,11 @@ $(document).ready(function(){
             {
                 if(data.reg==1)
                 {
+                        $(obj).addClass('reg');
                         $(obj).html('Registered');
                 }
                 else
-                 {
+                 {      $(obj).removeClass('reg');
                         $(obj).html('Register');
                  }
             }
