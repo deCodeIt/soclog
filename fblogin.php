@@ -37,7 +37,7 @@ function testAPI(response){
 
   window.fbAsyncInit = function() {
     FB.init({
-      appId      : '1521684931494498',
+      appId      : '991993504180041',
       xfbml      : true,
       version    : 'v2.5'
     });
@@ -62,5 +62,4 @@ function testAPI(response){
 </script>
 <button onclick="fbLogin()">Log In Via Facebook</button>
 <div id="status"></div>
-<img id="profPic" src="#">
 </body>
