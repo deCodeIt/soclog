@@ -59,7 +59,7 @@ function setup($field){
 				}
 			}
 		}
-		echo json_encode(array('status' => 'true','data'=>$reg_events);
+		echo json_encode(array('status' => 'true','data'=>$reg_events));
 	}
 	else
 	{
