@@ -12,6 +12,10 @@ function testAPI(response){
     console.log(JSON.stringify(response));
     document.getElementById('status').innerHTML=JSON.stringify(response);
   });
+  FB.api('/me/picture?type=small', function(response) {
+    console.log(JSON.stringify(response));
+    document.getElementById('profPic').src=response.url;
+  });
 }
 
 // This is called with the results from from FB.getLoginStatus().
@@ -68,4 +72,5 @@ function testAPI(response){
 </script>
 <button onclick="fbLogin()">Log In Via Facebook</button>
 <div id="status"></div>
+<img id="profPic" src="#">
 </body>
