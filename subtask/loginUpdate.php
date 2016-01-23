@@ -100,10 +100,12 @@ if(setup('accessToken') && setup('name') && setup('email') && setup('prof_id') &
 		//user has updated its access token
 		if(setField('accessToken',$accessToken))
 		{
+			echo 'accessToken set';
 			$_SESSION['accessToken']=$accessToken;
 		}
 		else
 		{
+			echo 'error setting access token';
 			$_SESSION['accessToken']=NULL;
 		}
 
