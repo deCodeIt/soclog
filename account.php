@@ -41,6 +41,7 @@ $(document).ready(function(){
                 status = 1;
         }
         dat={zeit_event:$(this).attr('href').substr(1),stat:status};
+        console.log(dat);
         $.ajax({
           method: 'POST',
           url: 'event_reg.php',
