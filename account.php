@@ -37,7 +37,7 @@ $(document).ready(function(){
         $.ajax({
           method: 'POST',
           url: 'event_reg.php',
-          data: $(this).attr('href');
+          data: $(this).attr('href')
         })
           .done(function( msg ) {
             // console.log("YES");
