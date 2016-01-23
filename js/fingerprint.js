@@ -110,7 +110,7 @@ $(document).ready(function(){
                         str='';
                         for(i=0;i<data.length;i++)
                         {
-                            str+='<li>'+data.name+'</li>';
+                            str+='<li>'+data[i].name+'</li>';
                         }
                         $('ul.registered-events').html(str);
                     }
