@@ -1,8 +1,8 @@
 <?php
 $servername = "localhost";//name of the server
-$rootusername = "csp203";
-$password = "iitropar@786";//password of the root user
-$database_name = "hub_csp";
+$rootusername = "";
+$password = "";//password of the root user
+$database_name = "";
 $table_name_company = "companyinfo";
 $table_name_student = "studentinfo";
 $table_name_project = "projects";
