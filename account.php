@@ -8,6 +8,25 @@
 <link href="http://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
 <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
 <script src="js/jquery.ui.touch-punch.min.js"></script>
+<script>
+$(document).ready(function(){
+        $(document).on('submit', 'form#registration_form', function() {            
+        $.ajax({
+            url     : $(this).attr('action'),
+            type    : $(this).attr('method'),
+            dataType: 'json',
+            data    : $(this).serialize(),
+            success : function( data ) {
+                         console.log('Submitted');
+            },
+            error   : function( xhr, err ) {
+                         console.log('Error');     
+            }
+        });    
+        return false;
+    });
+});
+</script>
 
 <body>
     <div id="div4" style="display:none;width:50px;background:transparent;height:50px;position:absolute;top:0px;right:0px">
@@ -18,6 +37,8 @@
       $("#div4").draggable ({
         axis : "y"
       });
+
+      
     </script>
 <!--facebook login Integration -->
 <script>
@@ -125,11 +146,43 @@ function testAPI(response){
                 }
         });
   }
+
   
 
 </script>
 <div id="status"></div>
 <!-- facebook login integration script closed-->
+<script>
+function validateForm(){
+        $(function() {
+            // validate and process form here
+              
+                $('.error').removeClass('error');
+
+                var field = $("input#email");
+                if (field.val() == "") {
+                        field.addClass('error');
+                        field.focus();
+                        return false;
+                      }
+                field = $("input#college");
+                if (field.val() == "") {
+                        field.addClass('error');
+                        field.focus();
+                        return false;
+                      }
+                field = $("input#location");
+                if (field.val() == "") {
+                        field.addClass('error');
+                        field.focus();
+                        return false;
+                      }
+
+                //validation passed
+                $('form#registration_form').submit();
+          });
+}
+</script>
 <div class="container">
         <a id="modal_trigger" href="#modal" class="btn">Event</a>
 
@@ -162,7 +215,7 @@ function testAPI(response){
                         
                         <!-- Register Form -->
                         <div class="user_register">
-                                <form>
+                                <form id="registration_form" action="register.php" method="POST">
                                         <label>Full Name</label>
                                         <input type="text" disabled="disabled" name="name" id="name"/>
                                         <br />
@@ -185,7 +238,7 @@ function testAPI(response){
                                         </div>
 
                                         <div class="action_btns">
-                                                <div class="one_half last"><a href="#" class="btn btn_red">Register</a></div>
+                                                <div class="one_half last"><a href="#" onclick="validateForm()" class="btn btn_red">Register</a></div>
                                         </div>
                                 </form>
                         </div>
