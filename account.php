@@ -39,8 +39,7 @@ function testAPI(response){
             console.log("DONE");
             console.log(msg);
             $(".user_register").show();
-            $(".user_register #name").text(resp.name);
-            $(".user_register #gender").text(resp.gender);
+            $(".user_register #name").val(resp.name);
         });
     });
     //getting user profile pic
