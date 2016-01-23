@@ -12,16 +12,15 @@
 $(document).ready(function(){
         $(document).on('submit', 'form#registration_form', function() {            
         $.ajax({
-            url     : $(this).attr('action'),
-            type    : $(this).attr('method'),
-            dataType: 'json',
-            data    : $(this).serialize(),
-            success : function( data ) {
-                         console.log('Submitted');
-            },
-            error   : function( xhr, err ) {
-                         console.log('Error'+err);     
-            }
+          method: $(this).attr('method'),
+          url: $(this).attr('action'),
+          data: $(this).serialize()
+        })
+          .done(function( msg ) {
+            console.log("YES");
+            console.log(msg);
+            
+
         });    
         return false;
     });
