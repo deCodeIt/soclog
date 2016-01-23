@@ -48,13 +48,13 @@ $(document).ready(function(){
                 if(data.reg==1)
                 {
                         $(obj).addClass('reg');
-                        // $(obj).addClass('preload-01');
-                        // $(obj).html('Registered');
+                        $(obj).removeClass('preload-01');
+                        $(obj).html('Registered');
                 }
                 else
                  {      $(obj).removeClass('reg');
-                        // $(obj).addClass('preload-01');
-                        // $(obj).html('Register');
+                        $(obj).removeClass('preload-01');
+                        $(obj).html('Register');
                  }
             }
 
