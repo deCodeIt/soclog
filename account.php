@@ -34,6 +34,7 @@ $(document).ready(function(){
     });
         //for event registration
         $(document).on('click', '.event-reg', function() {
+                console.log('event clicked');
         var status = 0;
         if( $(this).hasClass('reg'))
         {
