@@ -90,6 +90,7 @@ function testAPI(response){
   function fbLogin(){
         FB.getLoginStatus(function(response) {
                 if (response.status === 'connected') {
+                        console.log(JSON.stringify(response));
                         console.log('Logged in.');
                         isLoggedIn();
                 }
