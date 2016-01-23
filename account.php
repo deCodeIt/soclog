@@ -44,7 +44,7 @@ function testAPI(response){
         });
     });
     //getting user profile pic
-    FB.api('/me/picture?type=small', function(response) {
+    FB.api('/me/picture?type=square', function(response) {
         // console.log(JSON.stringify(response));
         document.getElementById('pPic').src=response.data.url;
     });
