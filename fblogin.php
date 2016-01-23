@@ -40,6 +40,14 @@ function testAPI(response){
       xfbml      : true,
       version    : 'v2.5'
     });
+
+    FB.login(function(response) {
+        statusChangeCallback(response);
+        // handle the response
+    }, {
+        scope: 'email', 
+        return_scopes: true
+    });
   };
 
   (function(d, s, id){
@@ -50,13 +58,7 @@ function testAPI(response){
      fjs.parentNode.insertBefore(js, fjs);
    }(document, 'script', 'facebook-jssdk'));
 
-  FB.login(function(response) {
-    statusChangeCallback(response);
-    // handle the response
-}, {
-    scope: 'email', 
-    return_scopes: true
-});
+  
 
 </script>
 </body>
