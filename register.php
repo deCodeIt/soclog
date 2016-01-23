@@ -21,24 +21,24 @@ if(setup('email') && setup('location') && setup('college'))
 	if($_SESSION['id']==NULL)
 	{
 		//user is trying to fraud with the system
-		return NULL;
+		echo json_encode(array('status' => 'false'));
 	}
 
 	$myquery=sprintf("UPDATE %s SET email='%s',location='%s',college='%s' WHERE id='%s'",$table_student,$email,$location,$college,$_SESSION['id']);
 	if($resQuery=mysqli_query($connect,$myquery))
 	{
-		return true;
+		echo json_encode(array('status' => 'true'));
 	}
 	else
 	{
-		return false;
+		echo json_encode(array('status' => 'false'));;
 	}
 
 
 }
 else
 {
-	return NULL;
+	echo json_encode(array('status' => 'false'));
 }
 
 ?>
