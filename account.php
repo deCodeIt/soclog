@@ -189,8 +189,7 @@ function testAPI(response){
         $(function(){
                 // Calling Login Form
                 $(".social_box").click(function(){
-                        $(".social_login").hide();
-                        $(".user_login").show();
+                        $("#modal").hide();
                         return false;
                 });
         })
