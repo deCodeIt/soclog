@@ -97,10 +97,10 @@ function testAPI(response){
                                                 
                                         </a>
 
-                                        <a href="#" class="social_box google">
+                                        <!-- <a href="#" class="social_box google">
                                                 <span class="icon"><i class="fa fa-google-plus"></i></span>
                                                 <span class="icon_title">Connect with Google</span>
-                                        </a>
+                                        </a> -->
                                 </div>
 
                                 <!-- <div class="centeredText">
