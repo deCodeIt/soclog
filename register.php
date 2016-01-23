@@ -21,7 +21,7 @@ if(setup('email') && setup('location') && setup('college') && !$_SESSION['reg_co
 	if($_SESSION['id']==NULL)
 	{
 		//user is trying to fraud with the system
-		echo json_encode(array('status' => 'false'));
+		echo json_encode(array('status' => 'false','error'=>'Attacked'));
 	}
 
 	$myquery=sprintf("UPDATE %s SET email='%s',location='%s',college='%s',reg_complete=`1` WHERE id='%s'",$table_student,$email,$location,$college,$_SESSION['id']);
@@ -32,14 +32,14 @@ if(setup('email') && setup('location') && setup('college') && !$_SESSION['reg_co
 	}
 	else
 	{
-		echo json_encode(array('status' => 'false'));;
+		echo json_encode(array('status' => 'false','error'=>'Query failure'));;
 	}
 
 
 }
 else
 {
-	echo json_encode(array('status' => 'false'));
+	echo json_encode(array('status' => 'false','error'=>'Fields Missing'));
 }
 
 ?>
