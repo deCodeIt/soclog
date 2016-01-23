@@ -85,6 +85,7 @@ function testAPI(response){
         if (response.status === 'connected') {
                 console.log('Logged in.');
                 //isLoggedIn();
+                testAPI(response);
         }
         });
   };
@@ -103,7 +104,7 @@ function testAPI(response){
                 if (response.status === 'connected') {
                         // console.log(JSON.stringify(response));
                         // console.log('Logged in.');
-                        testAPI(response);
+                        // testAPI(response);
                 }
                 else {
                         FB.login(function(response) {
