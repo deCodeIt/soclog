@@ -3,7 +3,7 @@ require_once './subtask/fb-path.inc.php';
 $fb = new Facebook\Facebook([
   'app_id' => '1521684931494498',
   'app_secret' => '543706019bf2511bfd88a1977e542661',
-  'default_graph_version' => 'v2.5',
+  'default_graph_version' => 'v2.2',
   ]);
 
 $helper = $fb->getRedirectLoginHelper();
