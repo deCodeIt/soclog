@@ -10,6 +10,7 @@ function testAPI(response){
   console.log(JSON.stringify(response));
   FB.api('/me', function(response) {
     console.log(JSON.stringify(response));
+    document.getElementById('status').innerHTML=response;
   });
 }
 
@@ -66,4 +67,5 @@ function testAPI(response){
 
 </script>
 <button onclick="fbLogin()">Log In Via Facebook</button>
+<div id="status"></div>
 </body>
