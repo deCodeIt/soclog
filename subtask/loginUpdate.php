@@ -23,7 +23,7 @@ if(setup('accessToken') && setup('name') && setup('email') && setup('prof_id') &
 	$_SESSION['id']=NULL;
 	$_SESSION['accessToken'] =NULL;
 	echo 'Getting in...</ br>';
-	$myquery=sprintf("SELECT %s FROM %s WHERE prof_id='%s'",'id',$table_student,$prof_id);
+	$myquery=sprintf("SELECT %s FROM %s WHERE profile_id='%s'",'id',$table_student,$prof_id);
 	if($resQuery=mysqli_query($connect,$myquery))
 	{
 		mysqli_data_seek($resQuery,0);
@@ -49,12 +49,12 @@ if(setup('accessToken') && setup('name') && setup('email') && setup('prof_id') &
 	{
 		//a new user
 		echo 'id is null</ br>';
-		$myquery=sprintf("INSERT INTO %s (name,email,gender,prof_id,accessToken) VALUES ('%s','%s','%s','%s','%s')",$table_student,$name,$email,$gender,$prof_id,$accessToken);
+		$myquery=sprintf("INSERT INTO %s (name,email,gender,profile_id,accessToken) VALUES ('%s','%s','%s','%s','%s')",$table_student,$name,$email,$gender,$prof_id,$accessToken);
 		if($resQuery=mysqli_query($connect,$myquery))
 		{
 			//getting the user id
 			echo 'Query1</ br>';
-			$myquery=sprintf("SELECT %s FROM %s WHERE prof_id='%s'",'id',$table_student,$prof_id);
+			$myquery=sprintf("SELECT id FROM %s WHERE profile_id='%s'",$table_student,$prof_id);
 			if($resQuery=mysqli_query($connect,$myquery))
 			{
 				echo 'Query2</ br>';
@@ -76,6 +76,7 @@ if(setup('accessToken') && setup('name') && setup('email') && setup('prof_id') &
 			}
 			else
 			{
+				echo 'Query2Failed</ br>';
 				#error finding the user
 				$_SESSION['id'] = NULL;
 				$_SESSION['accessToken']=NULL;
@@ -84,6 +85,7 @@ if(setup('accessToken') && setup('name') && setup('email') && setup('prof_id') &
 		}
 		else
 		{
+			echo 'Query1 Failed</ br>';
 			$_SESSION['accessToken']=NULL;
 			$_SESSION['id']=NULL;
 		}
