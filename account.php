@@ -179,7 +179,7 @@ function validateForm(){
                         status = false;
                       }
                 field = $("input#tos");
-                if(!field.checked)
+                if(!field.is(':checked'))
                 {
                         status=false;
                 }
