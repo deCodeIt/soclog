@@ -33,11 +33,17 @@ $(document).ready(function(){
         return false;
     });
         //for event registration
-        $(document).on('click', '.event-reg', function() {            
+        $(document).on('click', '.event-reg', function() {
+        var status = 0;
+        if( $(this).hasClass('reg'))
+        {
+                status = 1;
+        }
+        dat={zeit_event:$(this).attr('href').substr(1),stat:status};
         $.ajax({
           method: 'POST',
           url: 'event_reg.php',
-          data: $(this).attr('href')
+          data: dat
         })
           .done(function( msg ) {
             // console.log("YES");
@@ -46,7 +52,14 @@ $(document).ready(function(){
             data = JSON.parse(msg);
             if(data.status=='true')
             {
-                $(this).html('Registered');
+                if(data.reg==1)
+                {
+                        $(this).html('Registered');
+                }
+                else
+                 {
+                        $(this).html('Register');
+                 }
             }
 
         });    
