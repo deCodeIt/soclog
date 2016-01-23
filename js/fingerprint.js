@@ -24,7 +24,7 @@ $(document).ready(function(){
         //for event registration
         $(document).on('click', '.event-reg', function() {
         obj =this;
-        $(obj).html('<img src="images/ajax-loader.gif" style="width:38px;height:38px">');
+        $(obj).html('<img src="images/ajax-loader.gif" style="">');
         console.log('event clicked');
         var status = 2;
         if( $(this).hasClass('reg'))
@@ -117,7 +117,7 @@ $(document).ready(function(){
                         {
                             str+='<li>'+data[i].name+'</li>';
                         }
-                        // $('ul#registered-events').html(str);
+                        $('ul#registered-events').html(str);
                     }
 
                 });
