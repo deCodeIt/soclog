@@ -94,6 +94,7 @@
                 <li>Registered Events</li>
         </ul>
 </section>
+<!-- http://stiern.com/tutorials/create-a-cool-messy-list-with-css3-and-nth-child/ -->
 <section class="registered-events">
         <ul class="registered-events" id="registered-events">
         <li>Lorem ipsum dolor sit amet</li>
