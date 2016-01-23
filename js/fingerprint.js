@@ -98,9 +98,7 @@ $(document).ready(function(){
             {
                 //waiting logo
                 $('div.registered-events').show();
-                $('ul#registered-events').html(
-                    '<li><img src="images/ajax-loading.gif" style="width:38px;height:38px"></li>';
-                    );
+                $('ul#registered-events').html('<li><img src="images/ajax-loading.gif" style="width:38px;height:38px"></li>');
                 //sending request
                 $.ajax({
                   method: 'POST',
