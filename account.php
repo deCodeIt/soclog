@@ -9,7 +9,7 @@
 <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
 
 <body>
-    <div id="div4" style="width:50px;background:transparent;height:50px;position:absolute;top:0px;right:0px">
+    <div id="div4" style="display:none;width:50px;background:transparent;height:50px;position:absolute;top:0px;right:0px">
       <img src="#" style="width:100%;border-radius:50%;height:auto" id="pPic" />
     </div>
     <script>
@@ -47,6 +47,10 @@ function testAPI(response){
     FB.api('/me/picture?type=square', function(response) {
         // console.log(JSON.stringify(response));
         document.getElementById('pPic').src=response.data.url;
+        $( "#pPic" ).load( response.data.url, function() {
+        $('#div4').show();
+        });
+
     });
 }
 
