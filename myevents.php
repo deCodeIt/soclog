@@ -35,7 +35,7 @@ function setup($field){
 			$event_list[$i]['event']=$myValue['event'];
 			$event_list[$i]['name']=$myValue['name'];
 			$event_list[$i]['src']=$myValue['src'];
-			// $event_list[$i]['reg']=2; //not registered by default
+			$event_list[$i]['reg']=2; //not registered by default
 
 		}
 		$count = $i;
@@ -50,7 +50,7 @@ function setup($field){
 				mysqli_data_seek($resQuery,0);
 				if($myValue = mysqli_fetch_row($resQuery))
 				{
-					// $event_list[$i]['reg']=$myValue[1];
+					$event_list[$i]['reg']=$myValue[1];
 					if($myValue[1]==1)
 					{
 						//registered for this event
@@ -59,7 +59,7 @@ function setup($field){
 				}
 			}
 		}
-		var_dump($reg_events);
+		$_SESSION['regs']=$event_list;
 		echo json_encode(array('status' => 'true','data'=>$reg_events));
 	}
 	else
