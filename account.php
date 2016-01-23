@@ -178,7 +178,11 @@ function validateForm(){
                         field.focus();
                         status = false;
                       }
-
+                field = $("input#tos");
+                if(!field.checked)
+                {
+                        status=false;
+                }
                 //validation passed
                 if(status==true)
                         $('form#registration_form').submit();
