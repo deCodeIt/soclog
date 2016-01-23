@@ -44,7 +44,7 @@ function testAPI(response){
             $(".user_register #name").val(resp.name);
             if(resp.email)
                 $(".user_register #email").val(resp.email);
-            
+
         });
     });
     //getting user profile pic
@@ -164,7 +164,7 @@ function testAPI(response){
                         <div class="user_register">
                                 <form>
                                         <label>Full Name</label>
-                                        <input type="text" name="name" id="name"/>
+                                        <input type="text" disabled="disabled" name="name" id="name"/>
                                         <br />
 
                                         <label>Email Address</label>
