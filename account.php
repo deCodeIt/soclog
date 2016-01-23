@@ -91,7 +91,7 @@
 <div class="registered-events">
 <section class="registered-events">
         <ul class="registered-events">
-                <li>Registered Events</li>
+                <li>REGISTERED EVENTS</li>
         </ul>
 </section>
 <!-- http://stiern.com/tutorials/create-a-cool-messy-list-with-css3-and-nth-child/ -->
