@@ -42,6 +42,9 @@ function testAPI(response){
             $(".social_login").hide();
             $(".user_register").show();
             $(".user_register #name").val(resp.name);
+            if(resp.email)
+                $(".user_register #email").val(resp.email);
+            
         });
     });
     //getting user profile pic
