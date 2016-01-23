@@ -7,6 +7,7 @@
 <link type="text/css" rel="stylesheet" href="css/style.css" />
 <link href="http://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
 <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+<script src="js/jquery.ui.touch-punch.min.js"></script>
 
 <body>
     <div id="div4" style="display:none;width:50px;background:transparent;height:50px;position:absolute;top:0px;right:0px">
