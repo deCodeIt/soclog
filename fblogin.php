@@ -61,7 +61,6 @@ function testAPI(response){
     }, {
         scope: 'email', 
         return_scopes: true,
-        auth_type:'rerequest'
     });
   }
   
