@@ -31,11 +31,12 @@ function setup($field){
 		
 		while($myValue = mysqli_fetch_assoc($resQuery))
 		{
-			$i++;
+			
 			$event_list[$i]['event']=$myValue['event'];
 			$event_list[$i]['name']=$myValue['name'];
 			$event_list[$i]['src']=$myValue['src'];
 			$event_list[$i]['reg']=2; //not registered by default
+			$i++;
 
 		}
 		$count = $i;
