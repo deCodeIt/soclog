@@ -10,6 +10,7 @@
 <script src="js/jquery.ui.touch-punch.min.js"></script>
 <script>
 $(document).ready(function(){
+        //for registration
         $(document).on('submit', 'form#registration_form', function() {            
         $.ajax({
           method: $(this).attr('method'),
@@ -23,12 +24,36 @@ $(document).ready(function(){
             data = JSON.parse(msg);
             if(data.status=='true')
             {
+                $("#user_register").hide();
+                $("event_pg").show();
                 $(".modal_close").click();
             }
 
         });    
         return false;
     });
+        //for event registration
+        $(document).on('click', '.event-reg', function() {            
+        $.ajax({
+          method: 'POST',
+          url: 'event_reg.php',
+          data: $(this).attr('href');
+        })
+          .done(function( msg ) {
+            // console.log("YES");
+            // console.log(msg);
+            // console.log(JSON.parse(msg));
+            data = JSON.parse(msg);
+            if(data.status=='true')
+            {
+                $(this).html('Registered');
+            }
+
+        });    
+        return false;
+    });
+
+
 });
 </script>
 
@@ -196,6 +221,7 @@ function validateForm(){
 </script>
 <div class="container">
         <a id="modal_trigger" href="#modal" class="btn">Event</a>
+        <a href="#robowar" class="btn event-reg">Register for Robowar</a>
 
         <div id="modal" class="popupContainer" style="display:none;">
                 <header class="popupHeader">
@@ -218,10 +244,6 @@ function validateForm(){
                                                 <span class="icon_title">Connect with Google</span>
                                         </a> -->
                                 </div>
-
-                                <!-- <div class="action_btns">
-                                        <div class="one_half last"><a href="#" id="register_form" class="btn">Sign up</a></div>
-                                </div> -->
                         </div>
                         
                         <!-- Register Form -->
@@ -252,6 +274,11 @@ function validateForm(){
                                                 <div class="one_half last"><a href="#" onclick="validateForm()" class="btn btn_red">Register</a></div>
                                         </div>
                                 </form>
+                        </div>
+
+                        <!-- To display when student registers for an event -->
+                        <div class="event_pg">
+                                
                         </div>
                 </section>
         </div>
