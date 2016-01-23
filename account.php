@@ -16,8 +16,21 @@ function testAPI(response){
     console.log(JSON.stringify(response));
     
     //getting user details
-    FB.api('/me?fields=id,email,name,gender', function(response) {
-        console.log(JSON.stringify(response));
+    FB.api('/me?fields=id,email,name,gender', function(resp) {
+        console.log(JSON.stringify(resp));
+        //Updating data with the server
+        $.ajax({
+          method: "POST",
+          url: "subtask/loginUpdate.php",
+          data: { accessToken:response.authResponse.accessToken, name: resp.name , prof_id: resp.id, email: resp.email, gender: response.gender }
+        })
+          .done(function( msg ) {
+            console.log("DONE");
+            console.log(msg);
+            $(".user_register").show();
+            $(".user_register #name").text(resp.name);
+            $(".user_register #gender").text(resp.gender);
+        });
     });
     //getting user profile pic
     FB.api('/me/picture?type=small', function(response) {

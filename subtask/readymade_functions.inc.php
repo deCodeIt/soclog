@@ -1,6 +1,4 @@
 <?php
-ob_start();
-session_start();
 require_once 'connect.inc.php';
 $tmp_global_connect =$connect;
 ?>
@@ -8,7 +6,7 @@ $tmp_global_connect =$connect;
 
 <?php
 function hasLoggedIn(){
-	if ( isset($_SESSION['id']) && !empty($_SESSION['is'])) {
+	if ( isset($_SESSION['id']) && !empty($_SESSION['id'])) {
 		#The student has logged in
 		return true;
 	}
