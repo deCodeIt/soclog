@@ -110,7 +110,6 @@ function testAPI(response){
                                 </div> -->
 
                                 <div class="action_btns">
-                                        <div class="one_half"><a href="#" id="login_form" class="btn">Login</a></div>
                                         <div class="one_half last"><a href="#" id="register_form" class="btn">Sign up</a></div>
                                 </div>
                         </div>
@@ -161,7 +160,6 @@ function testAPI(response){
                                         </div>
 
                                         <div class="action_btns">
-                                                <div class="one_half"><a href="#" class="btn back_btn"><i class="fa fa-angle-double-left"></i> Back</a></div>
                                                 <div class="one_half last"><a href="#" class="btn btn_red">Register</a></div>
                                         </div>
                                 </form>
