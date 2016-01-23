@@ -10,7 +10,7 @@
 
 <body>
     <div id="div4" style="border:solid 1px;background-color:gainsboro;position:absolute;top:0px;right:0px">
-      <span>HERE</span><br /><br />
+      <img src="#" id="pPic" />
     </div>
     <script>
       
@@ -120,7 +120,6 @@ function testAPI(response){
 
 </script>
 <div id="status"></div>
-<img src="#" id="pPic" />
 <!-- facebook login integration script closed-->
 <div class="container">
         <a id="modal_trigger" href="#modal" class="btn">Event</a>
