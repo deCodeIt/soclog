@@ -11,17 +11,19 @@
 <script>
 
 function testAPI(response){
-  $('div#modal .modal_close').click();
-  console.log(response.authResponse.accessToken);
-  console.log(JSON.stringify(response));
-  FB.api('/me?fields=id,email,name,gender', function(response) {
+    $(".social_login").hide();
+    console.log(response.authResponse.accessToken);
     console.log(JSON.stringify(response));
-    document.getElementById('status').innerHTML=JSON.stringify(response);
-});
-  FB.api('/me/picture?type=small', function(response) {
-    console.log(JSON.stringify(response));
-    document.getElementById('pPic').src=response.data.url;
-});
+    
+    //getting user details
+    FB.api('/me?fields=id,email,name,gender', function(response) {
+        console.log(JSON.stringify(response));
+    });
+    //getting user profile pic
+    FB.api('/me/picture?type=small', function(response) {
+        console.log(JSON.stringify(response));
+        // document.getElementById('pPic').src=response.data.url;
+    });
 }
 
 // This is called with the results from from FB.getLoginStatus().
@@ -54,6 +56,13 @@ function testAPI(response){
       xfbml      : true,
       version    : 'v2.5'
     });
+
+    FB.getLoginStatus(function(response) {
+        if (response.status === 'connected') {
+                console.log('Logged in.');
+                isLoggedIn();
+        }
+        });
   };
 
 
@@ -66,13 +75,21 @@ function testAPI(response){
    }(document, 'script', 'facebook-jssdk'));
 
   function fbLogin(){
-    FB.login(function(response) {
-        statusChangeCallback(response);
-        // handle the response
-    }, {
-      scope: 'email', 
-      return_scopes: true
-    });
+        FB.getLoginStatus(function(response) {
+                if (response.status === 'connected') {
+                        console.log('Logged in.');
+                        isLoggedIn();
+                }
+                else {
+                        FB.login(function(response) {
+                                statusChangeCallback(response);
+                        // handle the response
+                        }, {
+                                scope: 'email', 
+                                return_scopes: true
+                        });
+                }
+        });
   }
   
 
@@ -105,39 +122,10 @@ function testAPI(response){
                                         </a> -->
                                 </div>
 
-                                <!-- <div class="centeredText">
-                                        <span>Or use your Email address</span>
-                                </div> -->
-
-                                <div class="action_btns">
+                                <!-- <div class="action_btns">
                                         <div class="one_half last"><a href="#" id="register_form" class="btn">Sign up</a></div>
-                                </div>
+                                </div> -->
                         </div>
-
-                        <!-- Username & Password Login form -->
-                        <!-- <div class="user_login">
-                                <form>
-                                        <label>Email / Username</label>
-                                        <input type="text" />
-                                        <br />
-
-                                        <label>Password</label>
-                                        <input type="password" />
-                                        <br />
-
-                                        <div class="checkbox">
-                                                <input id="remember" type="checkbox" />
-                                                <label for="remember">Remember me on this computer</label>
-                                        </div>
-
-                                        <div class="action_btns">
-                                                <div class="one_half"><a href="#" class="btn back_btn"><i class="fa fa-angle-double-left"></i> Back</a></div>
-                                                <div class="one_half last"><a href="#" class="btn btn_red">Login</a></div>
-                                        </div>
-                                </form>
-
-                                <a href="#" class="forgot_password">Forgot password?</a>
-                        </div> -->
 
                         <!-- Register Form -->
                         <div class="user_register">
@@ -150,13 +138,17 @@ function testAPI(response){
                                         <input type="email" name="email" id="email" />
                                         <br />
 
-                                        <label>Password</label>
-                                        <input type="password" />
+                                        <label>College</label>
+                                        <input type="text" name="college" id="college" />
+                                        <br />
+
+                                        <label>Location (City)</label>
+                                        <input type="text" name="location" id="location" />
                                         <br />
 
                                         <div class="checkbox">
-                                                <input id="send_updates" type="checkbox" />
-                                                <label for="send_updates">I agree to the <a href="#">ToS</a></label>
+                                                <input id="tos" name="tos" type="checkbox" />
+                                                <label for="tos">I agree to the <a href="#">ToS</a></label>
                                         </div>
 
                                         <div class="action_btns">
@@ -169,7 +161,7 @@ function testAPI(response){
 </div>
 
 <script type="text/javascript">
-        $("#modal_trigger").leanModal({top : 200, overlay : 0.6, closeButton: ".modal_close" });
+        $("#modal_trigger").leanModal({top : 150, overlay : 0.6, closeButton: ".modal_close" });
 
         $(function(){
                 // Calling Login Form
@@ -178,24 +170,6 @@ function testAPI(response){
                         $(".user_login").show();
                         return false;
                 });
-
-                // Calling Register Form
-                $("#register_form").click(function(){
-                        $(".social_login").hide();
-                        $(".user_register").show();
-                        $(".header_title").text('Register');
-                        return false;
-                });
-
-                // Going back to Social Forms
-                $(".back_btn").click(function(){
-                        $(".user_login").hide();
-                        $(".user_register").hide();
-                        $(".social_login").show();
-                        $(".header_title").text('Login');
-                        return false;
-                });
-
         })
 </script>
 
