@@ -36,7 +36,7 @@ else if(setup('zeit_event'))
 					//now return the event details and show up team reg form on its calling fngerprint.js
 					//ok got it :P
 					// echo 'A3';
-					$det_array['success']='true';
+					$det_array['status']='true';
 					$det_array['min_size']=$myValue[0];
 					$det_array['max_size']=$myValue[1];
 
@@ -73,14 +73,14 @@ else if(setup('zeit_event'))
 				else
 				{
 					// echo 'A8';
-					echo json_encode(array('success'=>'false','error'=>'no such event exists'));
+					echo json_encode(array('status'=>'false','error'=>'no such event exists'));
 					return;
 				}
 			}
 			else
 			{
 				// echo 'A9';
-				echo json_encode(array('success'=>'false','error'=>'Query Failure'));
+				echo json_encode(array('status'=>'false','error'=>'Query Failure'));
 				return;
 			}
 	}
@@ -108,14 +108,14 @@ else if(setup('zeit_event'))
 			else
 			{
 				// echo 'A13';
-				echo json_encode(array('success'=>'false','error'=>'no such event exists'));
+				echo json_encode(array('status'=>'false','error'=>'no such event exists'));
 				return;
 			}
 		}
 		else
 		{
 			// echo 'A14';
-			echo json_encode(array('success'=>'false','error'=>'Query Failure'));
+			echo json_encode(array('status'=>'false','error'=>'Query Failure'));
 			return;
 		}
 
@@ -195,7 +195,7 @@ else if(setup('zeit_event'))
 
 	  }
 	  else {
-	  	echo json_encode(array('success'=>'false','error'=>'Not A'));
+	  	echo json_encode(array('status'=>'false','error'=>'Not A'));
 	  	return;
 	  }
 	  //team members details captured
