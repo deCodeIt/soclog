@@ -68,6 +68,7 @@ $(document).ready(function(){
         //for event registration
         $(document).on('click', '.event-reg-team', function() {
         obj =this;
+        $(obj).addClass('preload-01');
         console.log('Team event clicked');
         dat={'zeit_event':$(this).attr('href').substr(1),'details':'true'};
         
@@ -93,7 +94,8 @@ $(document).ready(function(){
                     st+='<label>Member '+(i+1)+':</label><input type="text" name="team-member-id[]" id="team-member-'+(i+1)+'"/><br />';
                 }
                 st+='<div class="action_btns"><div class="one_half last"><a href="#" onclick="validateEventForm()" class="btn btn_red event-reg-team-form">Register</a></div></div>';
-                console.log(st);
+                // console.log(st);
+                $(obj).removeClass('preload-01');
                 //displaying the form
                 $('form#team_form').html(st);
                 $('.user_register').hide();
