@@ -77,7 +77,8 @@ else if(setup('zeit_event'))
 	else if(setup('team-member-id'))
 	{
 		//getting the event details for submission
-		$min,$max;
+		$min=0;
+		$max=0;
 		$event = mysqli_real_escape_string($connect,htmlentities($_REQUEST['zeit_event']));
 		$myquery=sprintf("SELECT team_size_min,team_size_max FROM %s WHERE event='%s'",$table_event_detail,$event);
 		if($resQuery=mysqli_query($connect,$myquery))
