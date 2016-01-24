@@ -48,7 +48,7 @@ else if(setup('zeit_event'))
 						{
 							//id exists
 							//storing the members name
-							$det_array['member']=explode(" ",$myValue[1]));
+							$det_array['member']=explode(" ",$myValue[1]);
 							echo json_encode($det_array);
 						}
 						else
