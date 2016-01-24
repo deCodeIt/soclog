@@ -17,11 +17,27 @@ function testAPI(response){
           .done(function( msg ) {
             // console.log("DONE");
             // console.log(msg);
-            $(".social_login").hide();
-            $(".user_register").show();
-            $(".user_register #name").val(resp.name);
-            if(resp.email)
-                $(".user_register #email").val(resp.email);
+            data = JSON.parse(msg);
+            if(data.status=='true')
+            {
+              //user has completed his registration before
+              if(data.reg_complete==1)
+              {
+                console.log("Already Registered");
+                $(".social_login").hide();
+                $(".event_pg").show();
+                $(".user_register").show();
+              }
+            }
+            else
+            {
+              //user is registering first time
+              $(".social_login").hide();
+              $(".user_register").show();
+              $(".user_register #name").val(resp.name);
+              if(resp.email)
+                  $(".user_register #email").val(resp.email);
+            }
 
         });
     });

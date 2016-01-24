@@ -31,10 +31,10 @@ if(setup('accessToken') && setup('name') && setup('email') && setup('prof_id') &
 		mysqli_data_seek($resQuery,0);
 		if($myValue = mysqli_fetch_row($resQuery))
 		{
-			echo'got the user id';
+			// echo'got the user id';
 			#user already exists in database
 			$_SESSION['id'] = $myValue[0];
-			$_SESSION['reg_complete']=$myValue[1];
+			// $_SESSION['reg_complete']=$myValue[1];
 			echo json_encode(array('reg_complete' => $myValue[1],
 				'status'=>'true'));
 		}
@@ -70,6 +70,7 @@ if(setup('accessToken') && setup('name') && setup('email') && setup('prof_id') &
 				{
 					// echo 'fetch1</ br>';
 					#user already exists in database
+					echo json_encode(array('status'=>'true'));
 					$_SESSION['id'] = $myValue[0];
 					$_SESSION['accessToken']=$accessToken;
 				}
@@ -77,6 +78,7 @@ if(setup('accessToken') && setup('name') && setup('email') && setup('prof_id') &
 				{
 					#user not found
 					// echo 'fetch2</ br>';
+					echo json_encode(array('status'=>'false'));
 					$_SESSION['id'] = NULL;
 					$_SESSION['accessToken']=NULL;
 				}
@@ -85,6 +87,7 @@ if(setup('accessToken') && setup('name') && setup('email') && setup('prof_id') &
 			{
 				// echo 'Query2Failed</ br>';
 				#error finding the user
+				echo json_encode(array('status'=>'false'));
 				$_SESSION['id'] = NULL;
 				$_SESSION['accessToken']=NULL;
 			}
@@ -93,6 +96,7 @@ if(setup('accessToken') && setup('name') && setup('email') && setup('prof_id') &
 		else
 		{
 			// echo 'Query1 Failed</ br>';
+			echo json_encode(array('status'=>'false'));
 			$_SESSION['accessToken']=NULL;
 			$_SESSION['id']=NULL;
 		}
@@ -103,12 +107,14 @@ if(setup('accessToken') && setup('name') && setup('email') && setup('prof_id') &
 		//user has updated its access token
 		if(setField('accessToken',$accessToken))
 		{
-			echo 'accessToken set';
+			// echo 'accessToken set';
 			$_SESSION['accessToken']=$accessToken;
+			echo json_encode(array('status'=>'true'));
 		}
 		else
 		{
-			echo 'error setting access token';
+			// echo 'error setting access token';
+			echo json_encode(array('status'=>'false'));
 			$_SESSION['accessToken']=NULL;
 		}
 
@@ -119,6 +125,7 @@ if(setup('accessToken') && setup('name') && setup('email') && setup('prof_id') &
 else
 {
 	// echo "fields missing";
+	echo json_encode(array('status'=>'false'));
 }
 
 ?>
