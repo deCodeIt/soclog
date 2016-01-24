@@ -91,15 +91,15 @@ else if(setup('zeit_event'))
 		$max=0;
 		$event = mysqli_real_escape_string($connect,htmlentities($_REQUEST['zeit_event']));
 		$myquery=sprintf("SELECT team_size_min,team_size_max FROM %s WHERE event='%s'",$table_event_detail,$event);
-		// echo 'A10';
+		echo 'A10';
 		if($resQuery=mysqli_query($connect,$myquery))
 		{
 			// echo 'Query2</ br>';
-			// echo 'A11';
+			echo 'A11';
 			mysqli_data_seek($resQuery,0);
 			if($myValue = mysqli_fetch_row($resQuery))
 			{
-				// echo 'A12';
+				echo 'A12';
 				//setting up min and max team members limit
 				$min=$myValue[0];
 				$max=$myValue[1];
@@ -107,14 +107,14 @@ else if(setup('zeit_event'))
 			}
 			else
 			{
-				// echo 'A13';
+				echo 'A13';
 				echo json_encode(array('status'=>'false','error'=>'no such event exists'));
 				return;
 			}
 		}
 		else
 		{
-			// echo 'A14';
+			echo 'A14';
 			echo json_encode(array('status'=>'false','error'=>'Query Failure'));
 			return;
 		}
@@ -122,8 +122,10 @@ else if(setup('zeit_event'))
 		//submitted team members details
 		$member_id=array();
 		if (is_array($_POST['team-member'])) {
+			echo 'A15';
 			if(!sizeof($_POST['team-member'])>=$min-1 || !sizeof($_POST['team-member'])<=$max)
 			{
+				echo 'A16';
 				echo json_encode(array('status'=>'false','error'=>'team size incorrect'));
 				return;
 			}
@@ -149,6 +151,7 @@ else if(setup('zeit_event'))
 	    }
 
 	    //now we are required to store it in DB
+	    echo 'A17';
 	    $memb = implode(" ",$member_id);
 	    $myquery=sprintf("SELECT id FROM %s WHERE id='%s'",$table_event,$_SESSION['id']);
 		if($resQuery=mysqli_query($connect,$myquery))
@@ -157,7 +160,8 @@ else if(setup('zeit_event'))
 			mysqli_data_seek($resQuery,0);
 			if($myValue = mysqli_fetch_row($resQuery))
 			{
-				//id exists				
+				//id exists	
+				echo 'A18';
 			}
 			else
 			{
@@ -166,9 +170,10 @@ else if(setup('zeit_event'))
 				if($resQuery=mysqli_query($connect,$myquery))
 				{
 					//ID is now in the table :)
+					echo 'A19';
 				}
 				else
-				{
+				{	echo 'A20';
 					echo json_encode(array('status'=>'false','error'=>'I Query Error'));
 					return;
 				}
@@ -176,6 +181,7 @@ else if(setup('zeit_event'))
 		}
 		else
 		{
+			echo 'A21';
 			echo json_encode(array('status'=>'false','error'=>'S Query Error'));
 			return;
 		}
@@ -186,15 +192,18 @@ else if(setup('zeit_event'))
 		$myquery=sprintf("UPDATE %s SET %s='%s' WHERE id='%s'",$table_event,$event,$memb,$_SESSION['id']);
 		if($resQuery=mysqli_query($connect,$myquery))
 		{
+			echo 'A22';
 			echo json_encode(array('status' => 'true','members'=>$memb));
 		}
 		else
 		{
+			echo 'A23';
 			echo json_encode(array('status' => 'false','error'=>'No such event Exists'));
 		}
 
 	  }
 	  else {
+	  	echo 'A24';
 	  	echo json_encode(array('status'=>'false','error'=>'Not A'));
 	  	return;
 	  }
@@ -202,10 +211,15 @@ else if(setup('zeit_event'))
 
 	}
 	else
-	{
+	{	echo 'A25';
 		echo json_encode(array('status'=>'false'));
 		return;
 	}
+}
+else
+{	echo 'A26';
+	echo json_encode(array('status'=>'false'));
+	return;
 }
 
 ?>
