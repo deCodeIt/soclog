@@ -120,6 +120,7 @@ function testAPI(response){
                         });
                 }
         });
+        return false;
   }
 
   
