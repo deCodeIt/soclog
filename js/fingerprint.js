@@ -61,6 +61,44 @@ $(document).ready(function(){
         });    
         return false;
     });
+
+        //for TEAM event registration
+        //for event registration
+        $(document).on('click', '.event-reg-team', function() {
+        obj =this;
+        console.log('Team event clicked');
+        dat={'zeit_event':$(this).attr('href').substr(1),'details':true};
+        
+        //get the team capacity
+        $.ajax({
+          method: 'POST',
+          url: 'event_reg_team.php',
+          data: dat
+        })
+          .done(function( msg ) {
+            console.log("YES");
+            console.log(msg);
+            data = JSON.parse(msg);
+            if(data.status=='true')
+            {
+                //now create the form
+                st="";
+                for(i=0;i<data.max_size;i++)
+                {
+                    st+='<label>Member '+(i+1)+':</label><input type="text" name="team-member-id[]" id="team-member-'+(i+1)+'"/><br />';
+                }
+                //displaying the form
+                $('form#team_form').html(st);
+                $('.user_register').hide();
+                $('.social-login').hide();
+                $('.event-pg').show();
+                $('#modal_trigger').click();
+                //form displayed
+            }
+
+        });    
+        return false;
+    });
         
         //event current status
         //for event registration

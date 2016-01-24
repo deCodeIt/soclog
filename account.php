@@ -28,6 +28,7 @@
 <div class="container">
         <a id="modal_trigger" href="#modal" class="btn">Event</a>
         <a href="#robowar" class="btn event-reg">Register for Robowar</a>
+        <a href="#hackathon" class="btn event-reg-team">Register for Hackathon</a>
         <div id="modal" class="popupContainer" style="display:none;">
                 <header class="popupHeader">
                         <span class="header_title">Login</span>
@@ -83,7 +84,9 @@
 
                         <!-- To display when student registers for an event -->
                         <div class="event_pg">
-                                
+                                <form id="team_form" action="event_reg_team.php" method="POST">
+                                        
+                                </form>
                         </div>
                 </section>
         </div>
