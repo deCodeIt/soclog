@@ -35,9 +35,25 @@ if(setup('accessToken') && setup('name') && setup('email') && setup('prof_id') &
 			#user already exists in database
 			$_SESSION['id'] = $myValue[0];
 			// $_SESSION['reg_complete']=$myValue[1];
-			echo json_encode(array('reg_complete' => $myValue[1],
+			// echo 'is isnt null</ br>';
+			//user has updated its access token
+			if(setField('accessToken',$accessToken))
+			{
+				// echo 'accessToken set';
+				$_SESSION['accessToken']=$accessToken;
+				echo json_encode(array('reg_complete' => $myValue[1],
 				'status'=>'true',
 				'id'=>'Z16'.str_pad($_SESSION['id'], 7, "0", STR_PAD_LEFT)));
+				return;
+			}
+			else
+			{
+				// echo 'error setting access token';
+				// echo json_encode(array('status'=>'false'));
+				$_SESSION['accessToken']=NULL;
+				echo json_encode(array('status'=>'false'));
+				return;
+			}
 		}
 		else
 		{
@@ -74,6 +90,7 @@ if(setup('accessToken') && setup('name') && setup('email') && setup('prof_id') &
 					echo json_encode(array('status'=>'true','id'=>'Z16'.str_pad($_SESSION['id'], 7, "0", STR_PAD_LEFT)));
 					$_SESSION['id'] = $myValue[0];
 					$_SESSION['accessToken']=$accessToken;
+					return;
 				}
 				else
 				{
@@ -82,6 +99,7 @@ if(setup('accessToken') && setup('name') && setup('email') && setup('prof_id') &
 					echo json_encode(array('status'=>'false'));
 					$_SESSION['id'] = NULL;
 					$_SESSION['accessToken']=NULL;
+					return;
 				}
 			}
 			else
@@ -91,6 +109,7 @@ if(setup('accessToken') && setup('name') && setup('email') && setup('prof_id') &
 				echo json_encode(array('status'=>'false'));
 				$_SESSION['id'] = NULL;
 				$_SESSION['accessToken']=NULL;
+				return;
 			}
 
 		}
@@ -100,25 +119,12 @@ if(setup('accessToken') && setup('name') && setup('email') && setup('prof_id') &
 			echo json_encode(array('status'=>'false'));
 			$_SESSION['accessToken']=NULL;
 			$_SESSION['id']=NULL;
+			return;
 		}
 	}
 	else
 	{
-		// echo 'is isnt null</ br>';
-		//user has updated its access token
-		if(setField('accessToken',$accessToken))
-		{
-			// echo 'accessToken set';
-			$_SESSION['accessToken']=$accessToken;
-			echo json_encode(array('status'=>'true','id'=>'Z16'.str_pad($_SESSION['id'], 7, "0", STR_PAD_LEFT)));
-		}
-		else
-		{
-			// echo 'error setting access token';
-			// echo json_encode(array('status'=>'false'));
-			$_SESSION['accessToken']=NULL;
-			echo json_encode(array('status'=>'false'));
-		}
+		
 
 	}
 	
@@ -128,6 +134,7 @@ else
 {
 	// echo "fields missing";
 	echo json_encode(array('status'=>'false'));
+	return;
 }
 
 ?>
