@@ -21,6 +21,10 @@ function testAPI(response){
             if(data.status=='true')
             {
               //user has completed his registration before
+              if(data.id)
+              {
+                $('li.zeit_user_id').html('REGISTERED EVENTS - '+);
+              }
               if(data.reg_complete==1)
               {
                 console.log("Already Registered");

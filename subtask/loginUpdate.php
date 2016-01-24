@@ -37,7 +37,7 @@ if(setup('accessToken') && setup('name') && setup('email') && setup('prof_id') &
 			// $_SESSION['reg_complete']=$myValue[1];
 			echo json_encode(array('reg_complete' => $myValue[1],
 				'status'=>'true',
-				'id'=>$_SESSION['id']));
+				'id'=>'Z16'.str_pad($_SESSION['id'], 7, "0", STR_PAD_LEFT)));
 		}
 		else
 		{
@@ -71,7 +71,7 @@ if(setup('accessToken') && setup('name') && setup('email') && setup('prof_id') &
 				{
 					// echo 'fetch1</ br>';
 					#user already exists in database
-					echo json_encode(array('status'=>'true','id'=>$_SESSION['id']));
+					echo json_encode(array('status'=>'true','id'=>'Z16'.str_pad($_SESSION['id'], 7, "0", STR_PAD_LEFT)));
 					$_SESSION['id'] = $myValue[0];
 					$_SESSION['accessToken']=$accessToken;
 				}
@@ -110,7 +110,7 @@ if(setup('accessToken') && setup('name') && setup('email') && setup('prof_id') &
 		{
 			// echo 'accessToken set';
 			$_SESSION['accessToken']=$accessToken;
-			echo json_encode(array('status'=>'true','id'=>$_SESSION['id']));
+			echo json_encode(array('status'=>'true','id'=>'Z16'.str_pad($_SESSION['id'], 7, "0", STR_PAD_LEFT)));
 		}
 		else
 		{

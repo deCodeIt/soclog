@@ -95,7 +95,7 @@
 <div class="registered-events">
 <section class="registered-events">
         <ul class="registered-events">
-                <li class="zeit_user_id">REGISTERED EVENTS - <?php echo 'Z16'.str_pad($_SESSION['id'], 7, "0", STR_PAD_LEFT); ?></li>
+                <li class="zeit_user_id">REGISTERED EVENTS <?php echo '- Z16'.str_pad($_SESSION['id'], 7, "0", STR_PAD_LEFT); ?></li>
         </ul>
 </section>
 <!-- http://stiern.com/tutorials/create-a-cool-messy-list-with-css3-and-nth-child/ -->
