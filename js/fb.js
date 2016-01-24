@@ -23,7 +23,7 @@ function testAPI(response){
               //user has completed his registration before
               if(data.id)
               {
-                $('li.zeit_user_id').html('REGISTERED EVENTS - '+);
+                $('li.zeit_user_id').html('REGISTERED EVENTS - '+data.id);
               }
               if(data.reg_complete==1)
               {
