@@ -67,7 +67,7 @@ $(document).ready(function(){
         $(document).on('click', '.event-reg-team', function() {
         obj =this;
         console.log('Team event clicked');
-        dat={'zeit_event':$(this).attr('href').substr(1),'details':true};
+        dat={'zeit_event':$(this).attr('href').substr(1),'details':'true'};
         
         //get the team capacity
         $.ajax({

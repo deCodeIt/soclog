@@ -19,22 +19,23 @@ if($_SESSION['id']==NULL)
 
 else if(setup('zeit_event'))
 {
-	echo 'here';
 	if(setup('details'))
 	{
+		echo 'A1';
 		$det_array=array();
 		//asked for event details => team size
 		$event = mysqli_real_escape_string($connect,htmlentities($_REQUEST['zeit_event']));
 		$myquery=sprintf("SELECT team_size_min,team_size_max FROM %s WHERE event='%s'",$table_event_detail,$event);
 			if($resQuery=mysqli_query($connect,$myquery))
 			{
+				echo 'A2';
 				// echo 'Query2</ br>';
 				mysqli_data_seek($resQuery,0);
 				if($myValue = mysqli_fetch_row($resQuery))
 				{
 					//now return the event details and show up team reg form on its calling fngerprint.js
 					//ok got it :P
-
+					echo 'A3';
 					$det_array['success']='true';
 					$det_array['min_size']=$myValue[0];
 					$det_array['max_size']=$myValue[1];
@@ -43,22 +44,25 @@ else if(setup('zeit_event'))
 					$myquery=sprintf("SELECT id,%s FROM %s WHERE id='%s'",$table_event,$event,$_SESSION['id']);
 					if($resQuery=mysqli_query($connect,$myquery))
 					{
-						
+						echo 'A4';
 						mysqli_data_seek($resQuery,0);
 						if($myValue = mysqli_fetch_row($resQuery))
 						{
 							//id exists
 							//storing the members name
+							echo 'A5';
 							$det_array['member']=explode(" ",$myValue[1]);
 							echo json_encode($det_array);
 						}
 						else
 						{
+							echo 'A6';
 							//No team Members have pre registered yet
 						}
 					}
 					else
 					{
+						echo 'A7';
 						// echo json_encode(array('status'=>'false','error'=>'S Query Error'));
 						// return;
 					}
@@ -66,12 +70,14 @@ else if(setup('zeit_event'))
 				}
 				else
 				{
+					echo 'A8';
 					echo json_encode(array('success'=>'false','error'=>'no such event exists'));
 					return;
 				}
 			}
 			else
 			{
+				echo 'A9';
 				echo json_encode(array('success'=>'false','error'=>'Query Failure'));
 				return;
 			}
@@ -83,12 +89,15 @@ else if(setup('zeit_event'))
 		$max=0;
 		$event = mysqli_real_escape_string($connect,htmlentities($_REQUEST['zeit_event']));
 		$myquery=sprintf("SELECT team_size_min,team_size_max FROM %s WHERE event='%s'",$table_event_detail,$event);
+		echo 'A10';
 		if($resQuery=mysqli_query($connect,$myquery))
 		{
 			// echo 'Query2</ br>';
+			echo 'A11';
 			mysqli_data_seek($resQuery,0);
 			if($myValue = mysqli_fetch_row($resQuery))
 			{
+				echo 'A12';
 				//setting up min and max team members limit
 				$min=$myValue[0];
 				$max=$myValue[1];
@@ -96,12 +105,14 @@ else if(setup('zeit_event'))
 			}
 			else
 			{
+				echo 'A13';
 				echo json_encode(array('success'=>'false','error'=>'no such event exists'));
 				return;
 			}
 		}
 		else
 		{
+			echo 'A14';
 			echo json_encode(array('success'=>'false','error'=>'Query Failure'));
 			return;
 		}
