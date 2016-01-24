@@ -93,7 +93,7 @@ $(document).ready(function(){
                 {
                     st+='<label>Member '+(i+1)+':</label><input type="text" name="team-member-id[]" id="team-member-'+(i+1)+'"/><br />';
                 }
-                st+='<div class="action_btns"><div class="one_half last"><a href="#" onclick="validateEventForm()" class="btn btn_red event-reg-team-form">Register</a></div></div>';
+                st+='<div class="action_btns"><div class="one_half last"><a href="#'+$(obj).attr('href').substr(1)+'" onclick="validateEventForm()" class="btn btn_red event-reg-team-form">Register</a></div></div>';
                 // console.log(st);
                 $(obj).removeClass('preload-01');
                 //displaying the form
@@ -113,10 +113,12 @@ $(document).ready(function(){
         //for event registration
 
         $(document).on('submit', 'form#team_form', function() {            
+        dat='zeit-event='+$('a.event-reg-team-form').attr('href').substr(1)+'&'+$(this).serialize();
+        console.log(dat);
         $.ajax({
           method: $(this).attr('method'),
           url: $(this).attr('action'),
-          data: $(this).serialize()
+          data: dat
         })
           .done(function( msg ) {
             console.log("YES");
