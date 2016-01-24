@@ -88,6 +88,7 @@ $(document).ready(function(){
                 {
                     st+='<label>Member '+(i+1)+':</label><input type="text" name="team-member-id[]" id="team-member-'+(i+1)+'"/><br />';
                 }
+                console.log(st);
                 //displaying the form
                 $('form#team_form').html(st);
                 $('.user_register').hide();
