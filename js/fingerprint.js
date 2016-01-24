@@ -65,6 +65,14 @@ $(document).ready(function(){
         return false;
     });
 
+        //on clicking edit button
+        $(document).on('click', 'a.event-reg-edit', function() {
+        obj =this;
+        $(this).parent().hide();
+        $('a.event-reg-team-form').parent().show();
+        return false;
+    });
+
         //for TEAM event registration
         //for event registration
         $(document).on('click', '.event-reg-team', function() {
@@ -95,14 +103,21 @@ $(document).ready(function(){
                 {
                     st+='<label>Member '+(i+1)+':</label><input type="text" name="team-member-name-'+(i+1)+'" id="team-member-'+(i+1)+'"/><br />';
                 }
-                st+='<div class="action_btns"><div class="one_half last"><a href="#'+$(obj).attr('href').substr(1)+'" onclick="validateEventForm()" class="btn btn_red event-reg-team-form">Register</a></div></div>';
+                st+='<div class="action_btns"><div class="one_half last"><a href="#'+$(obj).attr('href').substr(1)+'" onclick="validateEventForm()" class="btn btn_red event-reg-team-form">Register</a></div><div class="one_half last"><a href="#" class="btn btn_red event-reg-edit">Edit</a></div></div>';
                 // console.log(st);
                 $(obj).removeClass('preload-01');
                 //displaying the form
                 $('form#team_form').html(st);
+                if(data.member.length)
+                {
+                    //disable register and show edit button
+                    $('a.event-reg-team-form').parent().hide();
+                    $('a.event-reg-edit').parent().show();
+                }
                 for(i=0;i<data.member.length;i++)
                 {
                     $('input#team-member-'+(i+1)).val(data.member[i]);
+                    $('input#team-member-'+(i+1)).attr('disabled','disabled');
                     console.log(data.member[i]);
                 }
                 $('.user_register').hide();
