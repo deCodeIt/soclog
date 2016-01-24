@@ -114,7 +114,7 @@ $(document).ready(function(){
         //for event registration
 
         $(document).on('submit', 'form#team_form', function() {            
-        dat={'zeit-event':$('a.event-reg-team-form').attr('href').substr(1),'team-member':TEAM}
+        dat={'zeit_event':$('a.event-reg-team-form').attr('href').substr(1),'team-member':TEAM}
         console.log(dat);
         $.ajax({
           method: $(this).attr('method'),
