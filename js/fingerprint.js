@@ -80,9 +80,12 @@ $(document).ready(function(){
             console.log(msg);
             console.log(JSON.parse(msg));
             data = JSON.parse(msg).data;
+            console.log(data);
+            console.log(data.status);
             if(data.status=='true')
             {
                 //now create the form
+                console.log("yes");
                 st="";
                 for(i=0;i<parseInt(data.max_size);i++)
                 {
