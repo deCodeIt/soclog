@@ -61,34 +61,10 @@ $(document).ready(function(){
         });    
         return false;
     });
-
+        
         //event current status
         //for event registration
-        $('.event-reg').each(function(index) {
-        obj =this;
-        dat={'zeit_event':$(this).attr('href').substr(1)};
-        $.ajax({
-          method: 'POST',
-          url: 'event_status.php',
-          data: dat
-        })
-          .done(function( msg ) {
-            data = JSON.parse(msg);
-            if(data.status=='true')
-            {
-                if(data.reg==1)
-                {
-                        $(obj).addClass('reg');
-                        $(obj).html('Registered');
-                }
-                else
-                 {      $(obj).removeClass('reg');
-                        $(obj).html('Register');
-                 }
-            }
-
-        });
-    });
+        updateRegisteredEvents();
 
         //shows the list of registered events
         $('#pPic').click(function(){
@@ -127,6 +103,36 @@ $(document).ready(function(){
         });
 
 });
+
+function updateRegisteredEvents(){
+    //event current status
+        //for event registration
+        $('.event-reg').each(function(index) {
+        obj =this;
+        dat={'zeit_event':$(this).attr('href').substr(1)};
+        $.ajax({
+          method: 'POST',
+          url: 'event_status.php',
+          data: dat
+        })
+          .done(function( msg ) {
+            data = JSON.parse(msg);
+            if(data.status=='true')
+            {
+                if(data.reg==1)
+                {
+                        $(obj).addClass('reg');
+                        $(obj).html('Registered');
+                }
+                else
+                 {      $(obj).removeClass('reg');
+                        $(obj).html('Register');
+                 }
+            }
+
+        });
+    });
+}
 
 
 function validateForm(){

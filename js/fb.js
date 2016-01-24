@@ -28,6 +28,7 @@ function testAPI(response){
                 $(".user_register").hide();
                 $(".event_pg").show();
                 $(".modal_close").click();
+                updateRegisteredEvents();
               }
               else
               {
@@ -38,6 +39,7 @@ function testAPI(response){
                 if(resp.email)
                     $(".user_register #email").val(resp.email);
               }
+              //update the user registeres list of events
             }
 
         });
