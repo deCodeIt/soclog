@@ -103,7 +103,7 @@ else if(setup('zeit_event'))
 				//setting up min and max team members limit
 				$min=$myValue[0];
 				$max=$myValue[1];
-				echo $min."+".$max;
+				// echo $min."+".$max;
 			}
 			else
 			{
