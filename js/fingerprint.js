@@ -84,7 +84,7 @@ $(document).ready(function(){
             {
                 //now create the form
                 st="";
-                for(i=0;i<data.max_size;i++)
+                for(i=0;i<parseInt(data.max_size);i++)
                 {
                     st+='<label>Member '+(i+1)+':</label><input type="text" name="team-member-id[]" id="team-member-'+(i+1)+'"/><br />';
                 }
