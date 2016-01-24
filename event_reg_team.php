@@ -64,7 +64,7 @@ else if(setup('zeit_event'))
 					else
 					{
 						// echo 'A7';
-						echo json_encode(array('det'=>$det_array));
+						echo json_encode(array('data'=>$det_array));
 						// echo json_encode(array('status'=>'false','error'=>'S Query Error'));
 						// return;
 					}
