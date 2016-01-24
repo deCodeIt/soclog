@@ -80,10 +80,10 @@ $(document).ready(function(){
           data: dat
         })
           .done(function( msg ) {
-            console.log("YES");
-            console.log(msg);
+            // console.log("YES");
+            // console.log(msg);
             data = JSON.parse(msg);
-            console.log(data);
+            // console.log(data);
             
             if(data.status=='true')
             {
@@ -100,6 +100,11 @@ $(document).ready(function(){
                 $(obj).removeClass('preload-01');
                 //displaying the form
                 $('form#team_form').html(st);
+                for(i=0;i<data.member.length;i++)
+                {
+                    $('input#team-member-'+(i+1)).val(data.member[i]);
+                    console.log(data.member[i]);
+                }
                 $('.user_register').hide();
                 $('.social-login').hide();
                 $('.event-pg').show();
@@ -116,16 +121,16 @@ $(document).ready(function(){
 
         $(document).on('submit', 'form#team_form', function() {            
         dat={'zeit_event':$('a.event-reg-team-form').attr('href').substr(1),'team-member':TEAM}
-        console.log(dat);
+        // console.log(dat);
         $.ajax({
           method: $(this).attr('method'),
           url: $(this).attr('action'),
           data: dat
         })
           .done(function( msg ) {
-            console.log("YES");
-            console.log(msg);
-            console.log(JSON.parse(msg));
+            // console.log("YES");
+            // console.log(msg);
+            // console.log(JSON.parse(msg));
             data = JSON.parse(msg);
             if(data.status=='true')
             {
