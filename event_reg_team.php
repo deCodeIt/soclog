@@ -84,7 +84,7 @@ else if(setup('zeit_event'))
 				return;
 			}
 	}
-	else if(setup('team-member-id'))
+	else if((setup('team-member')))
 	{
 		//getting the event details for submission
 		$min=0;
@@ -121,14 +121,14 @@ else if(setup('zeit_event'))
 
 		//submitted team members details
 		$member_id=array();
-		if (is_array($_POST['team-member-id'])) {
-			if(!sizeof($_POST['team-member-id'])>=$min-1 || !sizeof($_POST['team-member-id'])<=$max)
+		if (is_array($_POST['team-member'])) {
+			if(!sizeof($_POST['team-member'])>=$min-1 || !sizeof($_POST['team-member'])<=$max)
 			{
 				echo json_encode(array('status'=>'false','error'=>'team size incorrect'));
 				return;
 			}
 	  	$i=0;
-	    foreach($_POST['team-member-id'] as $value){
+	    foreach($_POST['team-member'] as $value){
 	      $tmp_member_id = trim($value);
 	      if(preg_match("/Z16[0-9]{7}/i", $tmp_member_id))
 	      {
@@ -206,11 +206,6 @@ else if(setup('zeit_event'))
 		echo json_encode(array('status'=>'false'));
 		return;
 	}
-}
-else
-{
-	echo json_encode(array('status' => 'false','error'=>'Fields Missing'));
-	return;
 }
 
 ?>

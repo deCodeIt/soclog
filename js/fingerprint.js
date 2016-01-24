@@ -1,5 +1,6 @@
 MIN_SIZE=0;
 MAX_SIZE=0;
+TEAM=[];
 $(document).ready(function(){
         //for registration
         $(document).on('submit', 'form#registration_form', function() {            
@@ -91,7 +92,7 @@ $(document).ready(function(){
                 st="";
                 for(i=0;i<MAX_SIZE;i++)
                 {
-                    st+='<label>Member '+(i+1)+':</label><input type="text" name="team-member-id[]" id="team-member-'+(i+1)+'"/><br />';
+                    st+='<label>Member '+(i+1)+':</label><input type="text" name="team-member-name-'+(i+1)+'" id="team-member-'+(i+1)+'"/><br />';
                 }
                 st+='<div class="action_btns"><div class="one_half last"><a href="#'+$(obj).attr('href').substr(1)+'" onclick="validateEventForm()" class="btn btn_red event-reg-team-form">Register</a></div></div>';
                 // console.log(st);
@@ -113,7 +114,7 @@ $(document).ready(function(){
         //for event registration
 
         $(document).on('submit', 'form#team_form', function() {            
-        dat='zeit-event='+$('a.event-reg-team-form').attr('href').substr(1)+'&'+$(this).serialize();
+        dat={'zeit-event':$('a.event-reg-team-form').attr('href').substr(1),'team-member':TEAM;
         console.log(dat);
         $.ajax({
           method: $(this).attr('method'),
@@ -250,30 +251,31 @@ function validateForm(){
 function validateEventForm(){
     $(function() {
     // validate and process form here
-        console.log('validating form');
+        // console.log('validating form');
         $('.error').removeClass('error');
         count=0;
         var status=true;
         for(i=0;i<MAX_SIZE;i++)
         {
-            console.log("i:"+i);
+            // console.log("i:"+i);
             field = $("input#team-member-"+(i+1));
             if ((field.val() == "" && count>=MIN_SIZE) || !/Z16[0-9]{7}/i.test(field.val())) {
-                console.log("Y");
+                // console.log("Y");
                 field.addClass('error');
                 field.focus();
                 return false;
               }
               else
               {
-                console.log("N");
+                // console.log("N");
+                TEAM[i]='team-member-name-'+(i+1);
                 count++;
               }
         }
         //validation passed
         if(count>=MIN_SIZE && count<=MAX_SIZE)
         {
-            console.log('Submitting Form');
+            // console.log('Submitting Form');
                 $('form#team_form').submit();
         }
     });
