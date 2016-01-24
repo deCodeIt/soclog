@@ -247,29 +247,32 @@ function validateForm(){
 
 function validateEventForm(){
     $(function() {
-            // validate and process form here
-              
-                $('.error').removeClass('error');
-                count=0;
-                var status=true;
-                for(i=0;i<MAX_SIZE;i++)
-                {
-                    field = $("input#team-member-"+(i+1));
-                    if ((field.val() == "" && count>=MIN_SIZE) || !/Z16[0-9]{7}/i.test(field.val())) {
-                        field.addClass('error');
-                        field.focus();
-                        return false;
-                      }
-                      else
-                      {
-                        count++;
-                      }
-                }
-                    //validation passed
-                    if(count>=MIN_SIZE && count<+MAX_SIZE)
-                    {
-                        console.log('Submitting Form');
-                            $('form#team_form').submit();
-                    }
-          });
+    // validate and process form here
+        console.log('validating form');
+        $('.error').removeClass('error');
+        count=0;
+        var status=true;
+        for(i=0;i<MAX_SIZE;i++)
+        {
+            console.log("i:"+i);
+            field = $("input#team-member-"+(i+1));
+            if ((field.val() == "" && count>=MIN_SIZE) || !/Z16[0-9]{7}/i.test(field.val())) {
+                console.log("Y");
+                field.addClass('error');
+                field.focus();
+                return false;
+              }
+              else
+              {
+                console.log("N");
+                count++;
+              }
+        }
+        //validation passed
+        if(count>=MIN_SIZE && count<=MAX_SIZE)
+        {
+            console.log('Submitting Form');
+                $('form#team_form').submit();
+        }
+    });
 }
