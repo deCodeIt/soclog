@@ -82,7 +82,7 @@ $(document).ready(function(){
           .done(function( msg ) {
             console.log("YES");
             console.log(msg);
-            data = JSON.parse(msg).data;
+            data = JSON.parse(msg);
             console.log(data);
             
             if(data.status=='true')
