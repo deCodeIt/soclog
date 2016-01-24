@@ -82,7 +82,7 @@ function testAPI(response){
   window.fbAsyncInit = function() {
     FB.init({
       appId      : '991993504180041',
-      xfbml      : true,
+      xfbml      : false,
       version    : 'v2.5'
     });
 
@@ -116,8 +116,7 @@ function testAPI(response){
                                 statusChangeCallback(response);
                         // handle the response
                         }, {
-                                scope: 'email', 
-                                return_scopes: true
+                                scope: 'email'
                         });
                 }
         });
