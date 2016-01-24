@@ -92,7 +92,7 @@ $(document).ready(function(){
                 {
                     st+='<label>Member '+(i+1)+':</label><input type="text" name="team-member-id[]" id="team-member-'+(i+1)+'"/><br />';
                 }
-                st+='<div class="action_btns"><div class="one_half last"><a href="#" onclick="validateEventForm()" class="btn btn_red event-reg-team-form">Confirm Registration</a></div></div>';
+                st+='<div class="action_btns"><div class="one_half last"><a href="#" onclick="validateEventForm()" class="btn btn_red event-reg-team-form">Register</a></div></div>';
                 console.log(st);
                 //displaying the form
                 $('form#team_form').html(st);
@@ -248,7 +248,7 @@ function validateEventForm(){
             // validate and process form here
               
                 $('.error').removeClass('error');
-                m_count=0;
+                count=0;
                 var status=true;
                 for(i=0;i<MAX_SIZE;i++)
                 {
