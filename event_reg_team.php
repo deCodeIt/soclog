@@ -34,7 +34,10 @@ else if(setup('zeit_event'))
 					//now return the event details and show up team reg form on its calling fngerprint.js
 					//ok got it :P
 
-					array_push($det_array,'success'=>'true','min_size'=>$myValue[0],'max_size'=>$myValue[1]));
+					$det_array['success']='true';
+					$det_array['min_size']=$myValue[0];
+					$det_array['max_size']=$myValue[1];
+
 					//now checking if the user has already created his/her team
 					$myquery=sprintf("SELECT id,%s FROM %s WHERE id='%s'",$table_event,$event,$_SESSION['id']);
 					if($resQuery=mysqli_query($connect,$myquery))
@@ -45,8 +48,8 @@ else if(setup('zeit_event'))
 						{
 							//id exists
 							//storing the members name
-							array_push($det_array,explode(" ",$myValue[1]));
-							json_encode($det_array);
+							$det_array['member']=explode(" ",$myValue[1]));
+							echo json_encode($det_array);
 						}
 						else
 						{
