@@ -268,7 +268,7 @@ function validateEventForm(){
               else
               {
                 // console.log("N");
-                TEAM[i]='team-member-name-'+(i+1);
+                TEAM[i]=field.val();
                 count++;
               }
         }

@@ -132,6 +132,7 @@ else if(setup('zeit_event'))
 	  	$i=0;
 	    foreach($_POST['team-member'] as $value){
 	      $tmp_member_id = trim($value);
+	      echo "'".$tmp_member_id."'";
 	      if(preg_match("/Z16[0-9]{7}/i", $tmp_member_id))
 	      {
 	      	//ID FORMAT Z160000001
