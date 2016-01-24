@@ -25,8 +25,8 @@ function testAPI(response){
               {
                 console.log("Already Registered");
                 $(".social_login").hide();
+                $(".user_register").hide();
                 $(".event_pg").show();
-                $(".user_register").show();
               }
               else
               {
