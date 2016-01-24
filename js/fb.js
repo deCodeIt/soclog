@@ -27,6 +27,7 @@ function testAPI(response){
                 $(".social_login").hide();
                 $(".user_register").hide();
                 $(".event_pg").show();
+                $(".modal_close").click();
               }
               else
               {
