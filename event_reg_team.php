@@ -103,7 +103,7 @@ else if(setup('zeit_event'))
 				//setting up min and max team members limit
 				$min=$myValue[0];
 				$max=$myValue[1];
-				
+				echo $min."+".$max;
 			}
 			else
 			{
@@ -123,7 +123,7 @@ else if(setup('zeit_event'))
 		$member_id=array();
 		if (is_array($_POST['team-member'])) {
 			echo 'A15';
-			if(!sizeof($_POST['team-member'])>=$min-1 || !sizeof($_POST['team-member'])<=$max)
+			if(!sizeof($_POST['team-member'])>$min || !sizeof($_POST['team-member'])<$max)
 			{
 				echo 'A16';
 				echo json_encode(array('status'=>'false','error'=>'team size incorrect'));
