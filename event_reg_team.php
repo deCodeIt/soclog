@@ -19,6 +19,7 @@ if($_SESSION['id']==NULL)
 
 else if(setup('zeit_event'))
 {
+	echo 'here';
 	if(setup('details'))
 	{
 		$det_array=array();
@@ -66,6 +67,7 @@ else if(setup('zeit_event'))
 				else
 				{
 					echo json_encode(array('success'=>'false','error'=>'no such event exists'));
+					return;
 				}
 			}
 			else
@@ -189,11 +191,13 @@ else if(setup('zeit_event'))
 	else
 	{
 		echo json_encode(array('status'=>'false'));
+		return;
 	}
 }
 else
 {
 	echo json_encode(array('status' => 'false','error'=>'Fields Missing'));
+	return;
 }
 
 ?>
