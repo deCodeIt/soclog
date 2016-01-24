@@ -47,7 +47,7 @@ if(setup('accessToken') && setup('name') && setup('email') && setup('prof_id') &
 	}
 	else
 	{
-		#error finding the user
+		#error running query
 		// echo 'user not found</ br>';
 		$_SESSION['id'] = NULL;
 	}
@@ -109,12 +109,12 @@ if(setup('accessToken') && setup('name') && setup('email') && setup('prof_id') &
 		{
 			// echo 'accessToken set';
 			$_SESSION['accessToken']=$accessToken;
-			echo json_encode(array('status'=>'true'));
+			// echo json_encode(array('status'=>'true'));
 		}
 		else
 		{
 			// echo 'error setting access token';
-			echo json_encode(array('status'=>'false'));
+			// echo json_encode(array('status'=>'false'));
 			$_SESSION['accessToken']=NULL;
 		}
 
