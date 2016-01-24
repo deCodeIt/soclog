@@ -79,7 +79,7 @@ $(document).ready(function(){
             console.log("YES");
             console.log(msg);
             console.log(JSON.parse(msg));
-            data = JSON.parse(msg);
+            data = JSON.parse(msg).data;
             if(data.status=='true')
             {
                 //now create the form
