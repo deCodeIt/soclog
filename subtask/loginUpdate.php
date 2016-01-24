@@ -36,7 +36,8 @@ if(setup('accessToken') && setup('name') && setup('email') && setup('prof_id') &
 			$_SESSION['id'] = $myValue[0];
 			// $_SESSION['reg_complete']=$myValue[1];
 			echo json_encode(array('reg_complete' => $myValue[1],
-				'status'=>'true'));
+				'status'=>'true',
+				'id'=>$_SESSION['id']));
 		}
 		else
 		{
@@ -70,7 +71,7 @@ if(setup('accessToken') && setup('name') && setup('email') && setup('prof_id') &
 				{
 					// echo 'fetch1</ br>';
 					#user already exists in database
-					echo json_encode(array('status'=>'true'));
+					echo json_encode(array('status'=>'true','id'=>$_SESSION['id']));
 					$_SESSION['id'] = $myValue[0];
 					$_SESSION['accessToken']=$accessToken;
 				}
@@ -109,13 +110,14 @@ if(setup('accessToken') && setup('name') && setup('email') && setup('prof_id') &
 		{
 			// echo 'accessToken set';
 			$_SESSION['accessToken']=$accessToken;
-			// echo json_encode(array('status'=>'true'));
+			echo json_encode(array('status'=>'true','id'=>$_SESSION['id']));
 		}
 		else
 		{
 			// echo 'error setting access token';
 			// echo json_encode(array('status'=>'false'));
 			$_SESSION['accessToken']=NULL;
+			echo json_encode(array('status'=>'false'));
 		}
 
 	}
