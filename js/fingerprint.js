@@ -1,3 +1,5 @@
+MIN_SIZE=0;
+MAX_SIZE=0;
 $(document).ready(function(){
         //for registration
         $(document).on('submit', 'form#registration_form', function() {            
@@ -83,12 +85,14 @@ $(document).ready(function(){
             if(data.status=='true')
             {
                 //now create the form
-                
+                MIN_SIZE=parseInt(data.min_size);
+                MAX_SIZE=parseInt(data.max_size);
                 st="";
-                for(i=0;i<parseInt(data.max_size);i++)
+                for(i=0;i<MAX_SIZE;i++)
                 {
                     st+='<label>Member '+(i+1)+':</label><input type="text" name="team-member-id[]" id="team-member-'+(i+1)+'"/><br />';
                 }
+                st+='<div class="action_btns"><div class="one_half last"><a href="#" onclick="validateEventForm()" class="btn btn_red event-reg-team-form">Confirm Registration</a></div></div>';
                 console.log(st);
                 //displaying the form
                 $('form#team_form').html(st);
@@ -97,6 +101,32 @@ $(document).ready(function(){
                 $('.event-pg').show();
                 $('#modal_trigger').click();
                 //form displayed
+            }
+
+        });    
+        return false;
+    });
+
+        //Team event form submission
+        //for event registration
+
+        $(document).on('submit', 'form#team_form', function() {            
+        $.ajax({
+          method: $(this).attr('method'),
+          url: $(this).attr('action'),
+          data: $(this).serialize()
+        })
+          .done(function( msg ) {
+            console.log("YES");
+            console.log(msg);
+            console.log(JSON.parse(msg));
+            data = JSON.parse(msg);
+            if(data.status=='true')
+            {
+                //reset the form to blank and hide the modal
+                $("#event_pg").hide();
+                $('form#team_form').html('');
+                $(".modal_close").click();
             }
 
         });    
@@ -210,5 +240,31 @@ function validateForm(){
                 //validation passed
                 if(status==true)
                         $('form#registration_form').submit();
+          });
+}
+
+function validateEventForm(){
+    $(function() {
+            // validate and process form here
+              
+                $('.error').removeClass('error');
+                m_count=0;
+                var status=true;
+                for(i=0;i<MAX_SIZE;i++)
+                {
+                    field = $("input#team-member-"+(i+1));
+                    if ((field.val() == "" && count>=MIN_SIZE) || !/Z16[0-9]{7}/i.test(field.val())) {
+                        field.addClass('error');
+                        field.focus();
+                        return false;
+                      }
+                      else
+                      {
+                        count++;
+                      }
+                }
+                    //validation passed
+                    if(count>=MIN_SIZE && count<+MAX_SIZE)
+                            $('form#team_form').submit();
           });
 }
