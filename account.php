@@ -85,7 +85,7 @@
                         <!-- To display when student registers for an event -->
                         <div class="event_pg">
                                 <form id="team_form" action="event_reg_team.php" method="POST">
-                                        
+                                
                                 </form>
                         </div>
                 </section>

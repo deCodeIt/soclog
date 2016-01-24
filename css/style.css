@@ -80,6 +80,18 @@ a.btn_red {color: #FFF;}
     border: 1px solid red !important;
 }
 
+/* Event Register Form */
+.event_pg {display: none;}
+.event_pg label {display: block; margin-bottom:5px;}
+.event_pg input[type="text"], .event_pg input[type="email"], .event_pg input[type="password"] {display: block; width:90%; padding: 10px; border:1px solid #DDD; color:#666;}
+.event_pg input[type="checkbox"] {float:left; margin-right:5px;}
+.event_pg input[type="checkbox"]+label {float:left;}
+
+.event_pg .checkbox {margin-bottom: 10px; clear: both; overflow: hidden;}
+.event_pg input.error,.event_pg input.error:hover,.event_pg input.error:focus,.event_pg input.error:active {
+    border: 1px solid red !important;
+}
+
 ul.registered-events {
     list-style: none;
 }
