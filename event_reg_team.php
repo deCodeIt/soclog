@@ -41,7 +41,7 @@ else if(setup('zeit_event'))
 					$det_array['max_size']=$myValue[1];
 
 					//now checking if the user has already created his/her team
-					$myquery=sprintf("SELECT id,%s FROM %s WHERE id='%s'",$table_event,$event,$_SESSION['id']);
+					$myquery=sprintf("SELECT id,%s FROM %s WHERE id='%s'",$event,$table_event,$_SESSION['id']);
 					if($resQuery=mysqli_query($connect,$myquery))
 					{
 						// echo 'A4';
