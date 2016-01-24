@@ -68,6 +68,7 @@ $(document).ready(function(){
         //on clicking edit button
         $(document).on('click', 'a.event-reg-edit', function() {
         obj =this;
+        $('form#team_form input[id^=team-member-]').removeAttr('disabled');
         $(this).parent().hide();
         $('a.event-reg-team-form').parent().show();
         return false;
