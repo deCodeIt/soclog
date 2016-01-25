@@ -19,12 +19,27 @@ if($_SESSION['id']==NULL)
 
 else if(setup('zeit_event'))
 {
+	$event = mysqli_real_escape_string($connect,htmlentities($_REQUEST['zeit_event']));
+	if(setup('cancel'))
+	{
+		$myquery=sprintf("UPDATE %s SET %s='%s' WHERE id='%s'",$table_event,$event,'',$_SESSION['id']);
+		if($resQuery=mysqli_query($connect,$myquery))
+		{
+			// echo 'A22';
+			echo json_encode(array('status' => 'true'));
+		}
+		else
+		{
+			// echo 'A23';
+			echo json_encode(array('status' => 'false','error'=>'No such event Exists'));
+		}
+	}
 	if(setup('details'))
 	{
 		// echo 'A1';
 		$det_array=array();
 		//asked for event details => team size
-		$event = mysqli_real_escape_string($connect,htmlentities($_REQUEST['zeit_event']));
+		
 		$myquery=sprintf("SELECT team_size_min,team_size_max FROM %s WHERE event='%s'",$table_event_detail,$event);
 			if($resQuery=mysqli_query($connect,$myquery))
 			{

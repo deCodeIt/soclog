@@ -86,6 +86,51 @@ $(document).ready(function(){
         return false;
     });
 
+        //clicking team registration CANCEL button
+        $(document).on('click', '.event-reg-cancel', function() {
+        obj =this;
+        $(obj).addClass('preload-01');
+        // console.log('Team event clicked');
+        dat={'zeit_event':$(this).attr('href').substr(1),'cancel':'true'};
+        
+        //get the team capacity
+        $.ajax({
+          method: 'POST',
+          url: 'event_reg_team.php',
+          data: dat
+        })
+          .done(function( msg ) {
+            // console.log("YES");
+            // console.log(msg);
+            data = JSON.parse(msg);
+            // console.log(data);
+            
+            if(data.status=='true')
+            {
+                //now create the form
+                $(obj).removeClass('preload-01');
+                //displaying the form
+                if(data.member.length)
+                {
+                    //disable register and show edit button
+                    $('a.event-reg-team-form').parent().hide();
+                    $('a.event-reg-edit').parent().hide();
+                    $('a.event-reg-cancel').parent().show();
+                    $('a.event-reg-cancel').html('Cancelled');
+                    $('a.event-reg-cancel').attr('disabled','disabled');
+                    $('form#team_form input').val('');
+                }
+                //form displayed
+            }
+            else
+            {
+                $(obj).removeClass('preload-01');
+            }
+
+        });    
+        return false;
+    });
+
         //for TEAM event registration
         //for event registration
         $(document).on('click', '.event-reg-team', function() {
@@ -116,7 +161,7 @@ $(document).ready(function(){
                 {
                     st+='<label>Member '+(i+1)+':</label><input type="text" name="team-member-name-'+(i+1)+'" id="team-member-'+(i+1)+'"/><br />';
                 }
-                st+='<div class="action_btns"><div class="one_half last"><a href="#'+$(obj).attr('href').substr(1)+'" onclick="validateEventForm()" class="btn btn_red event-reg-team-form">Register</a></div><div class="one_half last"><a href="#" class="btn btn_red event-reg-edit">Edit</a></div></div>';
+                st+='<div class="action_btns"><div class="one_half last"><a href="#'+$(obj).attr('href').substr(1)+'" onclick="validateEventForm()" class="btn btn_red event-reg-team-form">Register</a></div><div class="one_half last"><a href="#" class="btn btn_red event-reg-edit">Edit</a></div><div class="one_half last"><a href="#" class="btn btn_red event-reg-cancel">Cancel</a></div></div>';
                 // console.log(st);
                 $(obj).removeClass('preload-01');
                 //displaying the form
@@ -126,6 +171,7 @@ $(document).ready(function(){
                     //disable register and show edit button
                     $('a.event-reg-team-form').parent().hide();
                     $('a.event-reg-edit').parent().show();
+                    $('a.event-reg-cancel').parent().show();
                 }
                 for(i=0;i<data.member.length;i++)
                 {
@@ -238,19 +284,19 @@ function updateRegisteredEvents(){
           data: dat
         })
           .done(function( msg ) {
-            console.log(msg);
+            // console.log(msg);
             data = JSON.parse(msg);
             if(data.status=='true')
             {
                 if(data.reg==1 || (data.reg.length >1))
                 {
-                    console.log('YES'+$(obj).html());
+                    // console.log('YES'+$(obj).html());
                         $(obj).addClass('reg');
                         $(obj).html('Registered');
                 }
                 else
                  {
-                    console.log('NO'+$(obj).html());
+                    // console.log('NO'+$(obj).html());
                         $(obj).removeClass('reg');
                         $(obj).html('Register');
                  }
