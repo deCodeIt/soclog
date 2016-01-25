@@ -87,7 +87,7 @@ $(document).ready(function(){
     });
 
         //clicking team registration CANCEL button
-        $(document).on('click', '.event-reg-cancel', function() {
+        $(document).on('click', 'a.event-reg-cancel', function() {
         obj =this;
         $(obj).addClass('preload-01');
         // console.log('Team event clicked');
@@ -101,7 +101,7 @@ $(document).ready(function(){
         })
           .done(function( msg ) {
             // console.log("YES");
-            // console.log(msg);
+            console.log(msg);
             data = JSON.parse(msg);
             // console.log(data);
             
