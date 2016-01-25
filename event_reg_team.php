@@ -141,7 +141,7 @@ else if(setup('zeit_event'))
 	      	array_push($member_id, strtoupper($tmp_member_id));
 
 	      }
-	      else
+	      else if(!empty($tmp_member_id) && $i<$min-1)
 	      {
 	      	//invalid id passed
 	      	echo json_encode(array('status'=>'false','error'=>'invalidId','index'=>$i));
