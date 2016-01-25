@@ -56,7 +56,7 @@
                         <div class="user_register">
                                 <form id="registration_form" action="register.php" method="POST">
                                         <label>Full Name</label>
-                                        <input type="text" disabled="disabled" name="name" id="name"/>
+                                        <input type="text" name="name" id="name"/>
                                         <br />
 
                                         <label>Email Address</label>
