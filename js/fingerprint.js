@@ -147,7 +147,7 @@ $(document).ready(function(){
         })
           .done(function( msg ) {
             // console.log("YES");
-            // console.log(msg);
+            console.log(msg);
             data = JSON.parse(msg);
             // console.log(data);
             
@@ -166,14 +166,14 @@ $(document).ready(function(){
                 $(obj).removeClass('preload-01');
                 //displaying the form
                 $('form#team_form').html(st);
-                if(data.member && data.member.length)
+                if(data.member!="" && data.member.length)
                 {
                     //disable register and show edit button
                     $('a.event-reg-team-form').parent().hide();
                     $('a.event-reg-edit').parent().show();
                     $('a.event-reg-cancel').parent().show();
                 }
-                if(data.member)
+                if(data.member!="")
                     for(i=0;i<data.member.length;i++)
                     {
                         $('input#team-member-'+(i+1)).val(data.member[i]);
