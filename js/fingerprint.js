@@ -229,7 +229,7 @@ $(document).ready(function(){
 function updateRegisteredEvents(){
     //event current status
         //for event registration
-        $('.event-reg').each(function(index) {
+        $('.event-reg,.event-reg-team').each(function(index) {
         obj =this;
         dat={'zeit_event':$(this).attr('href').substr(1)};
         $.ajax({
