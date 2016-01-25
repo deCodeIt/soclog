@@ -121,7 +121,7 @@ $(document).ready(function(){
                     $('input#team-member-'+(i+1)).attr('disabled','disabled');
                     console.log(data.member[i]);
                 }
-                $('.user_register').hide();
+                $('.user-register').hide();
                 $('.social-login').hide();
                 $('.event-pg').show();
                 $('#modal_trigger').click();
