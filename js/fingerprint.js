@@ -185,7 +185,7 @@ $(document).ready(function(){
         
         //event current status
         //for event registration
-        updateRegisteredEvents();
+        // updateRegisteredEvents();
 
         //shows the list of registered events
         $('#pPic').click(function(){
