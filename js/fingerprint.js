@@ -181,6 +181,7 @@ $(document).ready(function(){
                   url: 'myevents.php',
                 })
                   .done(function( msg ) {
+                    console.log(msg);
                     data = JSON.parse(msg);
                     if(data.status=='true')
                     {
