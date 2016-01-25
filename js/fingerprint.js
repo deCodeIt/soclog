@@ -113,7 +113,8 @@ $(document).ready(function(){
                 $('a.event-reg-edit').parent().hide();
                 $('a.event-reg-cancel').parent().show();
                 $('a.event-reg-cancel').html('Cancelled');
-                $('a.event-reg-cancel').attr('disabled','disabled');
+                // $('a.event-reg-cancel').attr('disabled','disabled');
+                $('a.event-reg-cancel').removeClass('event-reg-cancel');
                 $('form#team_form input').val('');
                 //form displayed
             }
@@ -215,7 +216,7 @@ $(document).ready(function(){
                 // $(".event_pg").hide();
                 $(".event_pg .btn").removeClass('preload-01');
                 $(".event_pg .btn").html('Done');
-                $(".event_pg .btn").attr('disabled','disabled');
+                $(".event_pg .btn").removeClass('event-reg-team-form');
                 // $('form#team_form').html('');
                 // $(".modal_close").click();
             }
