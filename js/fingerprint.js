@@ -104,27 +104,18 @@ $(document).ready(function(){
             console.log(msg);
             data = JSON.parse(msg);
             // console.log(data);
-            
+            $(obj).removeClass('preload-01');
             if(data.status=='true')
             {
                 //now create the form
-                $(obj).removeClass('preload-01');
-                //displaying the form
-                if(data.member && data.member.length)
-                {
-                    //disable register and show edit button
-                    $('a.event-reg-team-form').parent().hide();
-                    $('a.event-reg-edit').parent().hide();
-                    $('a.event-reg-cancel').parent().show();
-                    $('a.event-reg-cancel').html('Cancelled');
-                    $('a.event-reg-cancel').attr('disabled','disabled');
-                    $('form#team_form input').val('');
-                }
+                
+                $('a.event-reg-team-form').parent().hide();
+                $('a.event-reg-edit').parent().hide();
+                $('a.event-reg-cancel').parent().show();
+                $('a.event-reg-cancel').html('Cancelled');
+                $('a.event-reg-cancel').attr('disabled','disabled');
+                $('form#team_form input').val('');
                 //form displayed
-            }
-            else
-            {
-                $(obj).removeClass('preload-01');
             }
 
         });    
