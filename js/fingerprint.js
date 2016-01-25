@@ -297,7 +297,7 @@ function validateEventForm(){
         //validation passed
         if(count>=MIN_SIZE && count<=MAX_SIZE)
         {
-            // console.log('Submitting Form');
+            console.log('Submitting Form');
                 $('form#team_form').submit();
         }
     });
