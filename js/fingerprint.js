@@ -108,13 +108,13 @@ $(document).ready(function(){
             if(data.status=='true')
             {
                 //now create the form
-                
-                $('a.event-reg-team-form').parent().hide();
+                $('form#team_form input[id^=team-member-]').removeAttr('disabled');
+                $('a.event-reg-team-form').parent().show();
                 $('a.event-reg-edit').parent().hide();
-                $('a.event-reg-cancel').parent().show();
-                $('a.event-reg-cancel').html('Cancelled');
+                $('a.event-reg-cancel').parent().hide();
+                // $('a.event-reg-cancel').html('Cancelled');
                 // $('a.event-reg-cancel').attr('disabled','disabled');
-                $('a.event-reg-cancel').removeClass('event-reg-cancel');
+                // $('a.event-reg-cancel').removeClass('event-reg-cancel');
                 $('form#team_form input').val('');
                 //form displayed
             }
