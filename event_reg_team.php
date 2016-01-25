@@ -22,19 +22,21 @@ else if(setup('zeit_event'))
 	$event = mysqli_real_escape_string($connect,htmlentities($_REQUEST['zeit_event']));
 	if(setup('cancel'))
 	{
-		$myquery=sprintf("UPDATE %s SET %s='%s' WHERE id='%s'",$table_event,$event,'',$_SESSION['id']);
+		$myquery=sprintf("UPDATE %s SET %s='' WHERE id='%s'",$table_event,$event,$_SESSION['id']);
 		if($resQuery=mysqli_query($connect,$myquery))
 		{
 			// echo 'A22';
 			echo json_encode(array('status' => 'true'));
+			return;
 		}
 		else
 		{
 			// echo 'A23';
 			echo json_encode(array('status' => 'false','error'=>'No such event Exists'));
+			return;
 		}
 	}
-	if(setup('details'))
+	else if(setup('details'))
 	{
 		// echo 'A1';
 		$det_array=array();
@@ -228,13 +230,13 @@ else if(setup('zeit_event'))
 	}
 	else
 	{	// echo 'A25';
-		echo json_encode(array('status'=>'false'));
+		echo json_encode(array('status'=>'false','error'=>'Nothing valuable found :('));
 		return;
 	}
 }
 else
 {	// echo 'A26';
-	echo json_encode(array('status'=>'false'));
+	echo json_encode(array('status'=>'false','Incorrect Fields'));
 	return;
 }
 
