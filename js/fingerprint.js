@@ -281,7 +281,7 @@ function validateEventForm(){
         {
             // console.log("i:"+i);
             field = $("input#team-member-"+(i+1));
-            if ((field.val() == "" && count<MIN_SIZE) || !/Z16[0-9]{7}/i.test(field.val())) {
+            if ((field.val() == "" && count<MIN_SIZE) || (field.val() != "" && !/Z16[0-9]{7}/i.test(field.val()))) {
                 // console.log("Y");
                 field.addClass('error');
                 field.focus();
