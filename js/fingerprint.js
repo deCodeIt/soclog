@@ -166,7 +166,7 @@ $(document).ready(function(){
                 $(obj).removeClass('preload-01');
                 //displaying the form
                 $('form#team_form').html(st);
-                if(data.member!="" && data.member.length)
+                if(data.member==""||data.member.length<=0)
                 {
                     //disable register and show edit button
                     $('a.event-reg-team-form').parent().hide();
