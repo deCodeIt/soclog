@@ -119,7 +119,7 @@ $(document).ready(function(){
                 {
                     $('input#team-member-'+(i+1)).val(data.member[i]);
                     $('input#team-member-'+(i+1)).attr('disabled','disabled');
-                    console.log(data.member[i]);
+                    // console.log(data.member[i]);
                 }
                 $('.user_register').hide();
                 $('.social_login').hide();
@@ -144,9 +144,9 @@ $(document).ready(function(){
           data: dat
         })
           .done(function( msg ) {
-            // console.log("YES");
-            // console.log(msg);
-            // console.log(JSON.parse(msg));
+            console.log("YES");
+            console.log(msg);
+            console.log(JSON.parse(msg));
             data = JSON.parse(msg);
             if(data.status=='true')
             {
