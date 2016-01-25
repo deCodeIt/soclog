@@ -154,6 +154,7 @@ $(document).ready(function(){
         $(document).on('submit', 'form#team_form', function() {            
         dat={'zeit_event':$('a.event-reg-team-form').attr('href').substr(1),'team-member':TEAM}
         // console.log(dat);
+        $("#event_pg .btn").addClass('preload-01');
         $.ajax({
           method: $(this).attr('method'),
           url: $(this).attr('action'),
@@ -167,9 +168,15 @@ $(document).ready(function(){
             if(data.status=='true')
             {
                 //reset the form to blank and hide the modal
-                $("#event_pg").hide();
-                $('form#team_form').html('');
-                $(".modal_close").click();
+                // $("#event_pg").hide();
+                $("#event_pg .btn").removeClass('preload-01');
+                $("#event_pg .btn").html('Done');
+                $("#event_pg .btn").attr('disabled','disabled');
+                // $('form#team_form').html('');
+                // $(".modal_close").click();
+            }
+            else{
+                $("#event_pg .btn").removeClass('preload-01');
             }
 
         });    
