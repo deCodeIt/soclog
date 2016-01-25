@@ -13,7 +13,7 @@ function setup($field){
 
 	$event_list = array();
 	$reg_events = array();
-	$event = mysqli_real_escape_string($connect,htmlentities($_REQUEST['zeit_event']));
+	// $event = mysqli_real_escape_string($connect,htmlentities($_REQUEST['zeit_event']));
 		
 	if($_SESSION['id']==NULL)
 	{
@@ -52,7 +52,7 @@ function setup($field){
 				if($myValue = mysqli_fetch_row($resQuery))
 				{
 					$event_list[$i]['reg']=$myValue[1];
-					if($myValue[1]==1)
+					if(!empty($myValue[1]) && $myValue[1]!=0)
 					{
 						//registered for this event
 						array_push($reg_events,$event_list[$i]);
