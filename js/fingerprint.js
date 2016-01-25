@@ -229,8 +229,8 @@ $(document).ready(function(){
 function updateRegisteredEvents(){
     //event current status
         //for event registration
-        $('.event-reg,.event-reg-team').each(function(index) {
-        obj =this;
+        $('.event-reg,.event-reg-team').each(function(index,obj) {
+        // obj =$('.event-reg,.event-reg-team');
         dat={'zeit_event':$(this).attr('href').substr(1)};
         $.ajax({
           method: 'POST',
