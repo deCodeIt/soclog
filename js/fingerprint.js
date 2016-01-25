@@ -25,6 +25,10 @@ $(document).ready(function(){
                 // $("event_pg").show();
                 // $(".modal_close").click();
             }
+            else
+            {
+                $("#user_register .btn").removeClass('preload-01');
+            }
         });
         return false;
     });
@@ -63,6 +67,10 @@ $(document).ready(function(){
                         $(obj).removeClass('preload-01');
                         $(obj).html('Register');
                  }
+            }
+            else
+            {
+                $(obj).removeClass('preload-01');
             }
 
         });    
@@ -130,6 +138,10 @@ $(document).ready(function(){
                 $('.event_pg').show();
                 $('#modal_trigger').click();
                 //form displayed
+            }
+            else
+            {
+                $(obj).removeClass('preload-01');
             }
 
         });    
