@@ -101,7 +101,7 @@ else if(setup('zeit_event'))
 				return;
 			}
 	}
-	else if((setup('team-member')))
+	else if(setup('team-member'))
 	{
 		//getting the event details for submission
 		$min=0;

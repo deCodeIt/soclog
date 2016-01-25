@@ -161,7 +161,7 @@ $(document).ready(function(){
                 {
                     st+='<label>Member '+(i+1)+':</label><input type="text" name="team-member-name-'+(i+1)+'" id="team-member-'+(i+1)+'"/><br />';
                 }
-                st+='<div class="action_btns"><div class="one_half last"><a href="#'+$(obj).attr('href').substr(1)+'" onclick="validateEventForm()" class="btn btn_red event-reg-team-form">Register</a></div><div class="one_half last"><a href="#" class="btn btn_red event-reg-edit">Edit</a></div><div class="one_half last"><a href="#" class="btn btn_red event-reg-cancel">Cancel</a></div></div>';
+                st+='<div class="action_btns"><div class="one_half last"><a href="#'+$(obj).attr('href').substr(1)+'" onclick="validateEventForm()" class="btn btn_red event-reg-team-form">Register</a></div><div class="one_half last"><a href="#" class="btn btn_red event-reg-edit">Edit</a></div><div class="one_half last"><a href="#'+$(obj).attr('href').substr(1)+'" class="btn btn_red event-reg-cancel">Cancel</a></div></div>';
                 // console.log(st);
                 $(obj).removeClass('preload-01');
                 //displaying the form
