@@ -173,12 +173,13 @@ $(document).ready(function(){
                     $('a.event-reg-edit').parent().show();
                     $('a.event-reg-cancel').parent().show();
                 }
-                for(i=0;i<data.member.length;i++)
-                {
-                    $('input#team-member-'+(i+1)).val(data.member[i]);
-                    $('input#team-member-'+(i+1)).attr('disabled','disabled');
-                    // console.log(data.member[i]);
-                }
+                if(data.member)
+                    for(i=0;i<data.member.length;i++)
+                    {
+                        $('input#team-member-'+(i+1)).val(data.member[i]);
+                        $('input#team-member-'+(i+1)).attr('disabled','disabled');
+                        // console.log(data.member[i]);
+                    }
                 $('.user_register').hide();
                 $('.social_login').hide();
                 $('.event_pg').show();
