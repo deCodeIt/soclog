@@ -110,7 +110,7 @@ $(document).ready(function(){
                 //now create the form
                 $(obj).removeClass('preload-01');
                 //displaying the form
-                if(data.member.length)
+                if(data.member && data.member.length)
                 {
                     //disable register and show edit button
                     $('a.event-reg-team-form').parent().hide();
