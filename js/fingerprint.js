@@ -3,39 +3,43 @@ MAX_SIZE=0;
 TEAM=[];
 $(document).ready(function(){
         //for registration
-        $(document).on('submit', 'form#registration_form', function() {            
+        
+        $(document).on('submit', 'form#registration_form', function() { 
+        $("#user_register .btn").addClass('preload-01');           
         $.ajax({
           method: $(this).attr('method'),
           url: $(this).attr('action'),
           data: $(this).serialize()
         })
           .done(function( msg ) {
-            console.log("YES");
-            console.log(msg);
-            console.log(JSON.parse(msg));
+            // console.log("YES");
+            // console.log(msg);
+            // console.log(JSON.parse(msg));
             data = JSON.parse(msg);
             if(data.status=='true')
             {
                 $("#user_register").hide();
-                $("event_pg").show();
-                $(".modal_close").click();
+                $("#user_register input").attr('disabled','disabled');
+                $("#user_register .btn").removeClass('preload-01');
+                $("#user_register .btn").html('Done');
+                // $("event_pg").show();
+                // $(".modal_close").click();
             }
-
-        });    
+        });
         return false;
     });
         //for event registration
         $(document).on('click', '.event-reg', function() {
         obj =this;
         $(obj).addClass('preload-01');
-        console.log('event clicked');
+        // console.log('event clicked');
         var status = 2;
         if( $(this).hasClass('reg'))
         {
                 status = 1;
         }
         dat={'zeit_event':$(this).attr('href').substr(1),'stat':status};
-        console.log(dat);
+        // console.log(dat);
         $.ajax({
           method: 'POST',
           url: 'event_reg.php',
@@ -79,7 +83,7 @@ $(document).ready(function(){
         $(document).on('click', '.event-reg-team', function() {
         obj =this;
         $(obj).addClass('preload-01');
-        console.log('Team event clicked');
+        // console.log('Team event clicked');
         dat={'zeit_event':$(this).attr('href').substr(1),'details':'true'};
         
         //get the team capacity
@@ -144,9 +148,9 @@ $(document).ready(function(){
           data: dat
         })
           .done(function( msg ) {
-            console.log("YES");
-            console.log(msg);
-            console.log(JSON.parse(msg));
+            // console.log("YES");
+            // console.log(msg);
+            // console.log(JSON.parse(msg));
             data = JSON.parse(msg);
             if(data.status=='true')
             {
@@ -181,7 +185,7 @@ $(document).ready(function(){
                   url: 'myevents.php',
                 })
                   .done(function( msg ) {
-                    console.log(msg);
+                    // console.log(msg);
                     data = JSON.parse(msg);
                     if(data.status=='true')
                     {
@@ -298,7 +302,7 @@ function validateEventForm(){
         //validation passed
         if(count>=MIN_SIZE && count<=MAX_SIZE)
         {
-            console.log('Submitting Form');
+            // console.log('Submitting Form');
                 $('form#team_form').submit();
         }
     });
