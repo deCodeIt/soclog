@@ -244,11 +244,14 @@ function updateRegisteredEvents(){
             {
                 if(data.reg==1 || (data.reg.length >1))
                 {
+                    console.log('YES');
                         $(obj).addClass('reg');
                         $(obj).html('Registered');
                 }
                 else
-                 {      $(obj).removeClass('reg');
+                 {
+                    console.log('NO');
+                        $(obj).removeClass('reg');
                         $(obj).html('Register');
                  }
             }
