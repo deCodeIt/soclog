@@ -112,6 +112,7 @@ $(document).ready(function(){
                 $('a.event-reg-team-form').parent().show();
                 $('a.event-reg-edit').parent().hide();
                 $('a.event-reg-cancel').parent().hide();
+                $('a.event-reg-team[href=#'+$("a.event-reg-cancel").attr("href").substr(1)+']').html('Register');
                 // $('a.event-reg-cancel').html('Cancelled');
                 // $('a.event-reg-cancel').attr('disabled','disabled');
                 // $('a.event-reg-cancel').removeClass('event-reg-cancel');
@@ -199,7 +200,7 @@ $(document).ready(function(){
         $(document).on('submit', 'form#team_form', function() {            
         dat={'zeit_event':$('a.event-reg-team-form').attr('href').substr(1),'team-member':TEAM}
         // console.log(dat);
-        $(".event_pg .btn").addClass('preload-01');
+        $(".event_pg a.event-reg-team-form").addClass('preload-01');
         $.ajax({
           method: $(this).attr('method'),
           url: $(this).attr('action'),
@@ -214,14 +215,16 @@ $(document).ready(function(){
             {
                 //reset the form to blank and hide the modal
                 // $(".event_pg").hide();
-                $(".event_pg .btn").removeClass('preload-01');
-                $(".event_pg .btn").html('Done');
-                $(".event_pg .btn").removeClass('event-reg-team-form');
+                $(".event_pg a.event-reg-team-form").removeClass('preload-01');
+                $(".event_pg a.event-reg-team-form").html('Done');
+                
+                $('a.event-reg-team[href=#'+$("a.event-reg-team-form").attr("href").substr(1)+']').html('Registered');
+                $(".event_pg a.event-reg-team-form").removeClass('event-reg-team-form');
                 // $('form#team_form').html('');
                 // $(".modal_close").click();
             }
             else{
-                $(".event_pg .btn").removeClass('preload-01');
+                $(".event_pg a.event-reg-team-form").removeClass('preload-01');
             }
 
         });    
