@@ -241,7 +241,7 @@ function updateRegisteredEvents(){
             data = JSON.parse(msg);
             if(data.status=='true')
             {
-                if(data.reg==1)
+                if(data.reg!='' && data.reg!='0')
                 {
                         $(obj).addClass('reg');
                         $(obj).html('Registered');
