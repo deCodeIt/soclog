@@ -169,6 +169,12 @@ $(document).ready(function(){
                 if(data.member==""||data.member.length<=0)
                 {
                     //disable register and show edit button
+                    $('a.event-reg-team-form').parent().show();
+                    $('a.event-reg-edit').parent().hide();
+                    $('a.event-reg-cancel').parent().hide();
+                }
+                else
+                {
                     $('a.event-reg-team-form').parent().hide();
                     $('a.event-reg-edit').parent().show();
                     $('a.event-reg-cancel').parent().show();
