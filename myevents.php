@@ -51,13 +51,8 @@ function setup($field){
 				mysqli_data_seek($resQuery,0);
 				if($myValue = mysqli_fetch_row($resQuery))
 				{
-					if( !empty($myValue[1]))
-						echo "1";
-					if($myValue[1]!=0)
-						echo "2";
-					echo "YYY";
 					$event_list[$i]['reg']=$myValue[1];
-					if(!empty($myValue[1]) && $myValue[1]!=0)
+					if(!empty($myValue[1]) || $myValue[1]==1)
 					{
 						//registered for this event
 						array_push($reg_events,$event_list[$i]);
